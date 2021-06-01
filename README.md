@@ -3,12 +3,12 @@ Assignment2 Web
 - Clone project về máy local
 - Copy vào htdocs của xampp
 - Cấu trúc thư mục sẽ như sau:
-htdocs--
-       |-public
-       |-src
-       |-.htacess
-       |-bk-cleanly.sql
-       |-index.php
+htdocs--assignment2--
+                    |-public
+                    |-src
+                    |-.htacess
+                    |-bk-cleanly.sql
+                    |-index.php
 - Sau đó mở database phpmysql của xampp bằng link: http://localhost/phpmyadmin/ 
 - Import file bk-cleanly.sql vào để tạo database cho project
 - Truy cập vào web với link: http://localhost/assignment2/Home/
