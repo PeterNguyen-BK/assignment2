@@ -1,0 +1,224 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+}
+
+.header {
+    width: 100%;
+    height: 116px;
+    z-index: 2;
+    transition-duration: 0.5s;
+}
+
+.sticky {
+    animation: slideInDown; 
+    animation-duration: 0.5s;
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    width: 170px;
+    height: 100px;
+}
+
+.navbar {
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar .non-display {
+    display: none;
+}
+
+.navbar-brand {
+    margin: 0 200px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar-collapse {
+    width: 100% !important;
+    justify-content: center;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-item {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+}
+
+.search button {
+    width: 113px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+}
+
+.header .search .btn:focus {
+    box-shadow: none;
+}
+
+.search .dropdown-menu {
+    width: 250px;
+    padding: 5px 10px;
+    top : 130% !important;
+    left: -120% !important;
+}
+
+.search .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    right: 32px;
+    border-bottom: 10px solid rgb(194, 194, 194);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+} 
+
+.search .dropdown-menu input {
+    padding: 5px 10px;
+}
+
+#userRegister {
+	width: 40%;
+	margin: 0 auto;
+}
+
+.search-responsive {display: none !important;}
+
+#userLogin img{
+    width: 20px;
+    height: 20px;
+}
+
+#userMenu button{
+    background-color: transparent;
+}
+
+.content {
+    width: 75%;
+    margin: 20px auto;
+}
+
+.service {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.content .service-img {
+    width: 30%;
+}
+
+.content .service-info {
+    width: 60%;
+}
+
+.service-img img {
+    width: 400px;
+}
+
+.service-info  img {
+    width: 20px;
+    height: 15px;
+    padding-right: 5px;
+}
+
+.service-info li {
+    padding: 5px 0;
+}
+
+div.stars {
+    width: 270px;
+    display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+    float: right;
+    padding: 10px;
+    font-size: 24px;
+    color: #444;
+    transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .15s;
+}
+
+input.star-5:checked ~ label.star:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { 
+    transform: rotate(-15deg) scale(1.3); 
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+#comment {
+    resize: none;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+} 
+
+.customer-comment {
+    margin-top: 10px;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.customer-comment:last-child {
+    border-bottom: none;
+}
+
+#bfgg {
+	background-color: rgb(39, 45, 46);
+	color: #ffffff;
+	padding: 10px;
+}
+
+.footer1 , .footer2, .footer3, .footer4 {
+    color: #ddd;
+}
+.lienhe, .banggia, .gioithieu, .dichvufooter{
+    font-size: large;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #282E34 !important;
+    margin-top: 20px;
+}
+
+.content-footer a{
+    color: goldenrod;
+}
+
+.content-footer a:hover{
+    color: aquamarine;
+}
+
+.content-footer{
+    text-align: justify;
+}
