@@ -9,8 +9,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img class="logo" style="display: block; margin: 0 auto;" src="/assignment2/public/img/logo-dark-01.png" alt="">
-                <form action="/assignment2/User/login" method="post" style="margin: 20px 0;">
+                <img class="logo" style="display: block; margin: 0 auto;" src="/public/img/logo-dark-01.png" alt="">
+                <form action="/User/login" method="post" style="margin: 20px 0;">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" name="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
