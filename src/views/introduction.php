@@ -73,7 +73,7 @@
                         <div class="p24">
                             <img src="../public/image/icon2.png" alt="icon2" class="pdxq1">
                             <h5 class="pdxq1h">Thanh toán dễ dàng</h5>
-                            <p class="pdxq1p">Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
+                            <p class="pdxq1p">Lorem chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
                         </div>
                     </div>
                     <div class="col-sm-4 pdxq">
