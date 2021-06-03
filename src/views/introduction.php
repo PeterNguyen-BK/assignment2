@@ -15,7 +15,6 @@
     <?php require_once "./src/views/layouts/header.php"?>
     
     <div class="content">
-    <?php echo $_SERVER["REQUEST_URI"] ?>
         <?php require_once "./src/views/layouts/login.php"?>
         <div class="container-fluid d-flex justify-content-center align-items-center" id="page-header">
             <h1>Giới thiệu</h1>

@@ -32,13 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 100%">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                <a class="nav-link" href="../Home/">TRANG CHỦ<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?php echo $_SERVER["HTTP_HOST"] ?>/Home/">TRANG CHỦ<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="../Introduction/">GIỚI THIỆU</a>
+                <a class="nav-link" href="<?php echo $_SERVER["HTTP_HOST"] ?>/Introduction/">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Information/">DỊCH VỤ</a>
+                    <a class="nav-link" href="<?php echo $_SERVER["HTTP_HOST"] ?>/Information/">DỊCH VỤ</a>
                 </li>
                 <li>
                     <a class="navbar-brand" href="#">
@@ -50,10 +50,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Price/">BẢNG GIÁ</a>
+                    <a class="nav-link" href="<?php echo $_SERVER["HTTP_HOST"] ?>/Price/">BẢNG GIÁ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Contact/">LIÊN HỆ</a>
+                    <a class="nav-link" href="<?php echo $_SERVER["HTTP_HOST"] ?>/Contact/">LIÊN HỆ</a>
                 </li>
                 <li>
                     <div class="dropdown search">
