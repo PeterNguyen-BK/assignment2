@@ -15,7 +15,7 @@ $(document).ready(function() {
         let password = $("#Password").val();
         if (email !="" && password !="") {
             $.ajax({
-                url: "/assignment2/User/login",
+                url: "/User/login",
                 type: "POST",
                 data: {
                     email: email,
@@ -40,7 +40,7 @@ $(document).ready(function() {
                         window.setTimeout(function(){ 
                             if (path[path.length - 1] != "register")
                                 location.reload();
-                            else location.href = "/assignment2/Home/";
+                            else location.href = "/Home/";
                         } ,1200);
                     }
                 }
@@ -63,7 +63,7 @@ $(document).ready(function() {
             button: false
         });
         window.setTimeout(function(){ 
-            location.href = "/assignment2/User/logout";
+            location.href = "/User/logout";
         } ,1200);
         e.preventDefault();
     })

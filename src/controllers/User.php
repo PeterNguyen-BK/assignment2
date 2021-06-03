@@ -26,7 +26,7 @@ class User extends Controller {
                 $_SESSION["login"] = $fname." ".$lname;
             }
         } else {
-            header("Location: /assignment2/Home/");
+            header("Location: /Home/");
         }
     }
 
@@ -47,7 +47,7 @@ class User extends Controller {
 
     function login() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            header("Location: /assignment2/Home/");
+            header("Location: /Home/");
         } else {
             $check = true;
             if (isset($_POST["email"])) {
@@ -77,7 +77,7 @@ class User extends Controller {
         // unset($_SESSION["login"]);
         // unset($_SESSION["user"]);
         session_destroy();
-        header("Location: /assignment2/Home/");
+        header("Location: /Home/");
     }
 }
 
