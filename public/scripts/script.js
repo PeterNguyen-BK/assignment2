@@ -15,7 +15,7 @@ $(document).ready(function() {
         let password = $("#Password").val();
         if (email !="" && password !="") {
             $.ajax({
-                url: "/User/login",
+                url: "/User/login/",
                 type: "POST",
                 data: {
                     email: email,
@@ -63,7 +63,7 @@ $(document).ready(function() {
             button: false
         });
         window.setTimeout(function(){ 
-            location.href = "/User/logout";
+            location.href = "/User/logout/";
         } ,1200);
         e.preventDefault();
     })
