@@ -16,7 +16,7 @@ $(document).ready(function() {
         if (email !="" && password !="") {
             $.ajax({
                 url: "/User/login/",
-                type: "GET",
+                type: "POST",
                 data: {
                     email: email,
                     password: password
