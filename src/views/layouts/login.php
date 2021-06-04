@@ -23,7 +23,7 @@
                     <button type="submit" name="btnLogin" class="btn btn-primary" id="butnLogin">Đăng nhập</button>
                     <?php if (!isset($_GET["url"]) || count(explode("/", filter_var(trim($_GET["url"],"/")))) == 1 || explode("/", filter_var(trim($_GET["url"],"/")))[1] != "register") {?>
                         <button type="button" class="btn btn-primary">
-                            <a href="/User/register" type="button" style="color: white; text-decoration:none;">Đăng ký</a>
+                            <a href="/User/register/" type="button" style="color: white; text-decoration:none;">Đăng ký</a>
                         </button>
                     <?php }?>
                 </form>
