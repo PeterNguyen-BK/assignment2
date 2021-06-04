@@ -15,7 +15,7 @@ $(document).ready(function() {
         let password = $("#Password").val();
         if (email !="" && password !="") {
             $.ajax({
-                url: "/User/login/",
+                url: "/assignment2/User/login/",
                 type: "POST",
                 data: {
                     email: email,
@@ -40,7 +40,7 @@ $(document).ready(function() {
                         window.setTimeout(function(){ 
                             if (path[path.length - 1] != "register")
                                 location.reload();
-                            else location.href = "/Home/";
+                            else location.href = "/assignment2/Home/";
                         } ,1200);
                     }
                 }
@@ -57,14 +57,31 @@ $(document).ready(function() {
 
     $("#logout").click(function(e) {
         swal({
-            title: "Login!",
-            text: "Login successfully!",
-            icon: "success",
-            button: false
+            title: "Logout",
+            text: "Are you sure to logout?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: "/assignment2/User/logout/",
+                    type: "GET",
+                    success: function(data) {
+                        swal({
+                            title: "Logout!",
+                            text: "Logout successfully!",
+                            icon: "success",
+                            button: false
+                        });
+                        window.setTimeout(function(){ 
+                            location.href = "/assignment2/Home/";
+                        } ,1200);
+                    }
+                });
+            }
         });
-        window.setTimeout(function(){ 
-            location.href = "/User/logout/";
-        } ,1200);
         e.preventDefault();
     })
 })

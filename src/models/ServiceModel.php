@@ -44,5 +44,10 @@ class ServiceModel extends Database {
         $qr = "SELECT * FROM service, price WHERE service.sid = price.sid";
         return mysqli_query($this->connect, $qr);
     }
+    
+    public function getDetailPriceService($sid) {
+        $qr = "SELECT * FROM service, price WHERE price.sid = $sid service.sid = price.sid";
+        return mysqli_query($this->connect, $qr);
+    }
 }
 ?>

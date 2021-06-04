@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
-    <link rel="stylesheet" href="/public/styles/introduction.css">
+    <link rel="stylesheet" href="/assignment2/public/styles/introduction.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <div class="content">
         <?php require_once "./src/views/layouts/login.php"?>
         <h4 style="font-weight:normal; margin: 20px auto; width: 240px">Đăng ký tài khoản mới</h4>
-        <form action="/User/register/" method="post" id="userRegister">
+        <form action="/assignment2/User/register" method="post" id="userRegister">
             <div class="form-group">
                 <label for="email">Địa chỉ Email</label>
                 <input type="text" name="email" class="form-control" id="inputEmail">
@@ -58,7 +58,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="/public/scripts/script.js"></script>
-    <script src="/public/scripts/register.js"></script>
+    <script src="/assignment2/public/scripts/script.js"></script>
+    <script src="/assignment2/public/scripts/register.js"></script>
 </body>
 </html>

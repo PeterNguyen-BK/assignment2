@@ -10,13 +10,9 @@ class User extends Controller {
 
     function show() {
         if (isset($_SESSION["login"])){
-            $result = $this->UserModel->getUser();
-            while ($row = mysqli_fetch_array($result))
-                if ($row["UID"] == $_SESSION["user"]) {
-                    $comment = $this->ServiceModel->getComment($row["UID"]);
-                    $this->View("userInfo", [$row, $comment]);
-                    break;
-                }
+            $user = $this->UserModel->getDetailUser($_SESSION["user"]);
+            $comment = $this->ServiceModel->getComment($_SESSION["user"]);
+            $this->View("userInfo", [$user, $comment]);
             if (isset($_POST["btnUpdateInfo"])) {
                 $fname = $_POST["fname"];
                 $lname = $_POST["lname"];
@@ -26,7 +22,7 @@ class User extends Controller {
                 $_SESSION["login"] = $fname." ".$lname;
             }
         } else {
-            header("Location: /Home/");
+            header("Location: /assignment2/Home/");
         }
     }
 
@@ -47,7 +43,7 @@ class User extends Controller {
 
     function login() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            header("Location: /Home/");
+            header("Location: /assignment2/Home/");
         } else {
             $check = true;
             if (isset($_POST["email"])) {
@@ -77,7 +73,7 @@ class User extends Controller {
         // unset($_SESSION["login"]);
         // unset($_SESSION["user"]);
         session_destroy();
-        header("Location: /Home/");
+        // header("Location: /assignment2/Home/");
     }
 }
 

@@ -23,5 +23,10 @@ class UserModel extends Database {
         }
         return json_encode($result);
     }
+
+    public function getDetailUser($uid) {
+        $qr = "SELECT * FROM User WHERE uid = $uid";
+        return mysqli_query($this->connect, $qr);
+    }
 }
 ?>

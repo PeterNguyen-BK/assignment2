@@ -11,8 +11,8 @@
         <a class="navbar-brand1 non-display" href="#">
             <?php
             if ($_GET["url"] == 'Home/' || $_GET["url"] == null) 
-                echo "<img class=\"logo\" src=\"/public/img/logo-light-01.png\" alt=\"\">";
-            else echo "<img class=\"logo\" src=\"/public/img/logo-dark-01.png\" alt=\"\">";
+                echo "<img class=\"logo\" src=\"/assignment2/public/img/logo-light-01.png\" alt=\"\">";
+            else echo "<img class=\"logo\" src=\"/assignment2/public/img/logo-dark-01.png\" alt=\"\">";
             ?>
             <!-- <img class="logo" src="/assignment2/public/img/logo-dark-01.png" alt=""> -->
         </a>
@@ -21,8 +21,8 @@
             <!-- <img src="/assignment2/public/img/loupe.svg" alt=""> -->
             <?php
             if (!isset($_GET["url"]) ||  $_GET["url"] == 'Home/') 
-                echo "<img src=\"/public/img/search.png\" alt=\"\">";
-            else echo "<img src=\"/public/img/loupe.svg\" alt=\"\">";
+                echo "<img src=\"/assignment2/public/img/search.png\" alt=\"\">";
+            else echo "<img src=\"/assignment2/public/img/loupe.svg\" alt=\"\">";
             ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -32,28 +32,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 100%">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                <a class="nav-link" href="/Home/">TRANG CHỦ<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/assignment2/Home/">TRANG CHỦ<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/Introduction/">GIỚI THIỆU</a>
+                <a class="nav-link" href="/assignment2/Introduction/">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Information/">DỊCH VỤ</a>
+                    <a class="nav-link" href="/assignment2/Information/">DỊCH VỤ</a>
                 </li>
                 <li>
                     <a class="navbar-brand" href="#">
                         <?php
                         if (!isset($_GET["url"]) || $_GET["url"] == 'Home/' ) 
-                            echo "<img class=\"logo\" src=\"/public/img/logo-light-01.png\" alt=\"\">";
-                        else echo "<img class=\"logo\" src=\"/public/img/logo-dark-01.png\" alt=\"\">";
+                            echo "<img class=\"logo\" src=\"/assignment2/public/img/logo-light-01.png\" alt=\"\">";
+                        else echo "<img class=\"logo\" src=\"/assignment2/public/img/logo-dark-01.png\" alt=\"\">";
                         ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Price/">BẢNG GIÁ</a>
+                    <a class="nav-link" href="/assignment2/Price/">BẢNG GIÁ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Contact/">LIÊN HỆ</a>
+                    <a class="nav-link" href="/assignment2/Contact/">LIÊN HỆ</a>
                 </li>
                 <li>
                     <div class="dropdown search">
@@ -61,8 +61,8 @@
                         <!-- <img src="/assignment2/public/img/loupe.svg" alt=""> -->
                         <?php
                         if (!isset($_GET["url"]) || $_GET["url"] == 'Home/') 
-                            echo "<img src=\"/public/img/search.png\" alt=\"\">";
-                        else echo "<img src=\"/public/img/loupe.svg\" alt=\"\">";
+                            echo "<img src=\"/assignment2/public/img/search.png\" alt=\"\">";
+                        else echo "<img src=\"/assignment2/public/img/loupe.svg\" alt=\"\">";
                         ?>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -76,8 +76,8 @@
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal" id="userLogin">
                 <?php        
                                 if (!isset($_GET["url"]) || $_GET["url"] == 'Home/') 
-                                    echo "<img src=\"/public/img/user-white.svg\" alt=\"\">";
-                                else echo "<img src=\"/public/img/user.svg\" alt=\"\">";
+                                    echo "<img src=\"/assignment2/public/img/user-white.svg\" alt=\"\">";
+                                else echo "<img src=\"/assignment2/public/img/user.svg\" alt=\"\">";
                                 echo "</a>";
                 } else { 
                 ?>
@@ -86,7 +86,7 @@
                             <?php echo $_SESSION["login"]; ?>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <a class="dropdown-item" href="/User/">Thông tin tài khoản</a>
+                            <a class="dropdown-item" href="/assignment2/User/">Thông tin tài khoản</a>
                             <a class="dropdown-item" href="#">Thay đổi mật khẩu</a>
                             <a class="dropdown-item" href="#" id="logout">Đăng xuất</a>
                         </div>

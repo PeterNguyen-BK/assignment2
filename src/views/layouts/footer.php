@@ -5,7 +5,7 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-3 col-sm-12 col-lg-3 icon3col">
-                            <img src="/public/image/ic1.png" alt="ic1" class="lg1">
+                            <img src="/assignment2/public/image/ic1.png" alt="ic1" class="lg1">
                         </div>
                         <div class="col-9 col-sm-12 col-lg-9 text3col">
                             <h5>GỌI NGAY CHO CHÚNG TÔI</h5>
@@ -16,7 +16,7 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-3 col-sm-12 col-lg-3 icon3col">
-                            <img src="/public/image/ic2.png" alt="ic2" class="lg1">
+                            <img src="/assignment2/public/image/ic2.png" alt="ic2" class="lg1">
                         </div>
                         <div class="col-9 col-sm-12 col-lg-9 text3col">
                             <h5>320 17C LÝ THƯỜNG KIỆT</h5>
@@ -27,7 +27,7 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-3 col-sm-12 col-lg-3 icon3col">
-                            <img src="/public/image/ic3.png" alt="ic3" class="lg1">
+                            <img src="/assignment2/public/image/ic3.png" alt="ic3" class="lg1">
                         </div>
                         <div class="col-9 col-sm-12 col-lg-9 text3col">
                             <h5>EMAIL</h5>
@@ -54,7 +54,7 @@
                     Bảng giá của chúng tôi
                 </p>
                 <p class="content-footer">
-                    Nếu bạn muốn tham khảo giá, <a href="/Contact/">nhấn vào đây</a> sẽ có nhiều mức giá mà chúng tôi luôn cập nhật thường xuyên nhất.
+                    Nếu bạn muốn tham khảo giá, <a href="../contact">nhấn vào đây</a> sẽ có nhiều mức giá mà chúng tôi luôn cập nhật thường xuyên nhất.
                 </p>
             </div>
             <div class="footer2 col">
