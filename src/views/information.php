@@ -29,7 +29,7 @@
                         <p class="dichvu"><?php echo $row["name"] ?></p>
                         <div class="line-bottom-small"></div>
                         <p class="content-dichvu"><?php echo substr($row["description"], 0, strrpos($row["description"], " ", -500)) ?>...</p>
-                        <a href="./service/<?php echo $row["SID"]; ?>"><button class="btn btn-outline-info" style="margin-bottom: 20px;">Chi tiết</button></a>
+                        <a href="./service/<?php echo $row["SID"]; ?>/"><button class="btn btn-outline-info" style="margin-bottom: 20px;">Chi tiết</button></a>
                     </div>
             <?php }?>
                 <!-- <div class="col content-img">
