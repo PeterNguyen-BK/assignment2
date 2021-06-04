@@ -14,7 +14,7 @@
     <div class="content">
         <?php require_once "./src/views/layouts/login.php"?>
         <h4 style="font-weight:normal; margin: 20px auto; width: 240px">Đăng ký tài khoản mới</h4>
-        <form action="/User/register" method="post" id="userRegister">
+        <form action="/User/register/" method="post" id="userRegister">
             <div class="form-group">
                 <label for="email">Địa chỉ Email</label>
                 <input type="text" name="email" class="form-control" id="inputEmail">
