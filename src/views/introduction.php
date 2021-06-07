@@ -10,212 +10,42 @@
     <link rel="stylesheet" href="/assignment2/public/styles/introduction.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        .diff_color {
+            background: gray;
+        }
+        .sctable {
+            display: block;
+            max-height: 400px;
+            overflow-y : scroll;
+        }
+        .mg10{
+            margin: 10px;
+        }
+        
+    </style>
 </head>
 <body>
     <?php require_once "./src/views/layouts/header.php"?>
     
     <div class="content">
         <?php require_once "./src/views/layouts/login.php"?>
-        <!-- Messenger Plugin chat Code -->
-        <div id="fb-root"></div>
-
-        <!-- Your Plugin chat code -->
-        <div id="fb-customer-chat" class="fb-customerchat">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="user-tab" data-toggle="tab" href="#home" role="tab" aria-controls="user" aria-selected="true">User</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="service-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="service" aria-selected="false">Service</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="price-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="price" aria-selected="false">Price</a>
+        </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">1</div>
+        <div class="tab-pane fade" id="service" role="tabpanel" aria-labelledby="service-tab">2</div>
+        <div class="tab-pane fade" id="price" role="tabpanel" aria-labelledby="price-tab">3</div>
         </div>
-
-        <script>
-            var chatbox = document.getElementById('fb-customer-chat');
-            chatbox.setAttribute("page_id", "100202265629605");
-            chatbox.setAttribute("attribution", "biz_inbox");
-            window.fbAsyncInit = function() {
-                FB.init({
-                xfbml            : true,
-                version          : 'v10.0'
-                });
-            };
-
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <div class="container-fluid d-flex justify-content-center align-items-center" id="page-header">
-            <h1>Giới thiệu</h1>
-            <p>Trang chủ / <b>Giới thiệu</b></p>
-        </div>
-        <div class="gap30"></div>
-        <div class="container content-intro">
-            <div class="row align-equal">
-                <div class="col-12 col-sm-6 col-md-5 col-lg-6" id="gallery">
-                    <div class="col-lg-12 col-md-12 grid-col-1 pd0">
-                        <a href="#"><img src="/assignment2/public/image/h1.jpg" alt="h1" id="heg100"></a>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 grid-col-1-3 pd10">
-                            <a href="#"><img src="/assignment2/public/image/h2sm.jpg " alt="h2" class="heg95"></a>
-                        </div>
-                        <div class="col-lg-4 col-md-12 grid-col-1-3 pd10">
-                            <a href="#"><img src="/assignment2/public/image/h3sm.jpg" alt="h3" class="heg95"></a>
-                        </div>
-                        <div class="col-lg-4 col-md-12 grid-col-1-3 pd10">
-                            <a href="#"><img src="/assignment2/public/image/h4sm.jpg" alt="h4" class="heg95"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-7 col-lg-6">
-                    <div class="intro">
-                        <h2>Giới thiệu</h2>
-                        <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giảLorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        <h6>khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học văn phòng, nội dung của nó vẫn không hề bị thay đổi. Nó đã được phổ biến trong những năm 1960 nhờ việc bán những bản giấy Letraset in những đoạn Lorem Ipsum, và gần đây hơn</h6>
-                    </div>
-                    <div class="sm">
-                        <h5>Sứ mệnh của chúng tôi</h5>
-                        <ul id="cli">
-                            <li>Cung cấp một loại dịch vụ khác nhau cho gia đình và các chuyên gia</li>
-                            <li>Cung cấp chất lượng cao và dịch vụ phù hợp</li>
-                            <li>Sử dụng các sản phẩm làm sạch thân thiện với môi trường</li>
-                            <li>Cung cấp công việc ổn định với mức lương cộng hưởng</li>
-                            <li>Tập trung nguồn lực của chúng tôi vào việc duy trì các tiêu chuẩn</li>
-                            <li>Làm cho bạn một khách hàng cực kỳ hài lòng</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" id="pdtop">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 pdxq">
-                        <div class="p24">
-                            <img src="/assignment2/public/image/icon1.png" alt="icon1" class="pdxq1">
-                            <h5 class="pdxq1h">Thanh toán dễ dàng</h5>
-                            <p class="pdxq1p">Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 pdxq">
-                        <div class="p24">
-                            <img src="/assignment2/public/image/icon2.png" alt="icon2" class="pdxq1">
-                            <h5 class="pdxq1h">Thanh toán dễ dàng</h5>
-                            <p class="pdxq1p">Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 pdxq">
-                        <div class="p24">
-                            <img src="/assignment2/public/image/icon3.png" alt="icon3" class="pdxq1">
-                            <h5 class="pdxq1h">Thanh toán dễ dàng</h5>
-                            <p class="pdxq1p">Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sp50"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 k1">
-                    <div class="row k12">
-                        <h4>Chúng tôi quan tâm đến ngôi nhà của bạn</h4>
-                        <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in ấn từ những năm 1500</p>
-                    </div>
-                    <div class="row k11">
-                        <div class="col-sm-6 col-12 k111">
-                            <img src="/assignment2/public/image/icon4.png" alt="icon4">
-                            <h5>CÔNG NGHỆ LÀM SẠCH</h5>
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                        <div class="col-sm-6 col-12 k111">
-                            <img src="/assignment2/public/image/icon5.png" alt="icon5">
-                            <h5>CÔNG NGHỆ LÀM SẠCH</h5>
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                    </div>
-                    <div class="row k11">
-                        <div class="col-sm-6 col-12 k111">
-                            <img src="/assignment2/public/image/icon6.png" alt="icon6">
-                            <h5>CÔNG NGHỆ LÀM SẠCH</h5>
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                        <div class="col-sm-6 col-12 k111">
-                            <img src="/assignment2/public/image/icon7.png" alt="icon7">
-                            <h5>CÔNG NGHỆ LÀM SẠCH</h5>
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                    </div>
-                    <div class="row k11">
-                        <div class="col-sm-6 col-12 k111">
-                            <img src="../public/image/icon8.png" alt="icon8">
-                            <h5>CÔNG NGHỆ LÀM SẠCH</h5>
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                        <div class="col-sm-6 col-12 k111">
-                            <img src="/assignment2/public/image/icon9.png" alt="icon9">
-                            <h5>CÔNG NGHỆ LÀM SẠCH</h5>
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 k2">
-                    <div class="row">
-                        <div class="col-12 padcho" id="img4">
-                            <div class="sp40"></div>
-                            <h5>Thanh toán chi phí</h5>
-                            <p>Ước tính chi phí của bạn</p>
-                            <a class="btn btn-primary btn-more" href="#" role="button">Xem thêm</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 padcho" id="img5">
-                            <div class="sp40"></div>
-                            <h5>Thanh toán chi phí</h5>
-                            <p>Ước tính chi phí của bạn</p>
-                            <a class="btn btn-primary btn-more" href="#" role="button">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" id="bgcolor1">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-12 col-sm-6">
-                        <div class="row">
-                            <div class="col-12 pd302">
-                                <h3>Các thương hiệu liên kết</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 cao" id="logo1">
-                                <img src="/assignment2/public/image/logo_01-1.png" alt="logo1" class="lg1">
-                            </div>
-                            <div class="col-6 cao" id="logo2">
-                                <img src="/assignment2/public/image/logo_02-1.png" alt="logo1" class="lg1">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 cao" id="logo3">
-                                <img src="/assignment2/public/image/logo_03-1.png" alt="logo1" class="lg1">
-                            </div>
-                            <div class="col-6 cao" id="logo4">
-                                <img src="/assignment2/public/image/logo_04-1.png" alt="logo1" class="lg1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <div class="col-12 pd302">
-                            <h3>Các thương hiệu liênkết</h3>
-                        </div>
-                        <div class="col-12" id="quite">
-                            <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in ấn từ những năm 1500, khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học văn phòng, nội dung của nó vẫn không hề bị thay đổi.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid sp30"></div>
-            </div>
-        </div>
-    </div> 
     <?php require_once "./src/views/layouts/footer.php"?>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -223,5 +53,319 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="/assignment2/public/scripts/script.js"></script>
+    <script>
+        //change
+        $(document).on('click','#user-tab',function(){
+            $('#user').removeClass('show');
+            $('#user').removeClass('active');
+            $('#service').removeClass('show');
+            $('#service').removeClass('active');
+            $('#price').removeClass('show');
+            $('#price').removeClass('active');
+
+            $('#user').addClass('show');
+            $('#user').addClass('active');
+        });
+
+        $(document).on('click','#service-tab',function(){
+            $('#user').removeClass('show');
+            $('#user').removeClass('active');
+            $('#service').removeClass('show');
+            $('#service').removeClass('active');
+            $('#price').removeClass('show');
+            $('#price').removeClass('active');
+
+            $('#service').addClass('show');
+            $('#service').addClass('active');
+        });
+
+        $(document).on('click','#price-tab',function(){
+            $('#user').removeClass('show');
+            $('#user').removeClass('active');
+            $('#service').removeClass('show');
+            $('#service').removeClass('active');
+            $('#price').removeClass('show');
+            $('#price').removeClass('active');
+
+            $('#price').addClass('show');
+            $('#price').addClass('active');
+        });
+        //
+        $(document).ready(updateTable());
+
+        function updateTable(){
+            $.ajax({
+          // The link we are accessing.
+          url: "/assignment2/Admin/showService",
+            
+          // The type of request.
+          type: "get",
+            
+          // The type of data that is getting returned.
+          dataType: "html",
+
+          success: function( strData ){
+            var json_object = JSON.parse(strData);
+            var data = '<table class="table sctable">'+
+                            '<thead>'+
+                                '<tr>'+
+                                '<th class="pv">Delete<input type="checkbox" class="v_checkbox all" /></th>'+
+                                '<th class="pv1">Edit</th>'+
+                                '<th scope="col">SID</th>'+
+                                '<th scope="col">Name</th>'+
+                                '<th scope="col">Description</th>'+
+                                '<th scope="col">Image</th>'+
+                                '<th scope="col">Task</th>'+
+                                '</tr>'+
+                            '</thead>'+
+                            '<tbody id="body_stable">';
+            for (var i = 0; i < json_object.length; i++) {
+                data=data+'<tr>';
+                data=data+'<td class="pv"><input type="checkbox" class="v_checkbox" /></td>';
+                data=data+'<td class="pv1"><input type="checkbox" class="v_checkbox1" /></td>';
+                data=data+'<th scope="row">';
+                data=data+json_object[i].SID;
+                data=data+'</th>';
+                data=data+'<td contenteditable="false" class="sname">';
+                data=data+json_object[i].name;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="sdes">';
+                data=data+json_object[i].description;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="simage">';
+                data=data+json_object[i].image;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="stask">';
+                data=data+json_object[i].task;
+                data=data+'</td>';
+                data=data+'</tr>';
+            }
+            data=data+'</tbody>';
+            data=data+'</table>';
+            data=data+'<button type="button" class="btn btn-success  mg10" id="sdel_button" disabled>Delete</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="sedit_button" disabled>Save change</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="sadd_button" >Add service</button>';
+            document.getElementById("service").innerHTML = data;
+            document.getElementById("user").innerHTML = "<h4>this is user page</h4>";
+            document.getElementById("price").innerHTML = "<h4>this is price page</h4>";
+		    }
+      	});
+        }
+
+        //add data
+        //////////////////////////
+        $(document).on('click','#sadd_button',function(){
+            var data = '<table class="table">'+
+                            '<thead>'+
+                                '<tr>'+
+                                '<th scope="col">Name</th>'+
+                                '<th scope="col">Description</th>'+
+                                '<th scope="col">Image</th>'+
+                                '<th scope="col">Task</th>'+
+                                '</tr>'+
+                            '</thead>'+
+                            '<tbody id="body_stable">'+
+                            '<tr>'+
+                            '<td><input type="text" class="form-control" id="name_add" placeholder="Enter name"></td>'+
+                            '<td><textarea class="form-control" id="des_add" rows="12" placeholder="Enter description"></textarea></td>'+
+                            '<td><input type="text" class="form-control" id="image_add" placeholder="Enter image path"></td>'+
+                            '<td><textarea class="form-control" id="task_add" rows="12" placeholder="Enter task"></textarea></td>'+
+                            '</tr>'+
+                            '</tbody>'+
+                            '</table>';
+            data=data+'<button type="button" class="btn btn-info mg10" id="sreturn" >return</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="sadd_button_submit" >Submit add</button>';
+            document.getElementById("service").innerHTML = data; 
+        });
+        //end add data
+        ///////////////////////////
+
+        //delete data
+        ///////////////////////////
+        var testing = function (e) {
+        var submit = $('#sdel_button');
+        var checkbox = $(this);
+        if ($(this).is('td')||$(this).is('th')) {
+            checkbox = $(this).find('input[type="checkbox"].v_checkbox');
+        }
+
+        submit.prop('disabled', true); // Disable submit button
+
+        checkbox.prop('checked', !checkbox.is(':checked')); // Change checked property
+        
+        if (checkbox.hasClass('all')) { // If this is "all"
+            $('.v_checkbox:not(.all)').prop('checked', checkbox.is(':checked'));  // Set all other to same as "all" 
+            if (checkbox.is(':checked')) { // change colour of "all" tr
+                checkbox.closest('tr').addClass('diff_color');  
+            } else {
+                checkbox.closest('tr').removeClass('diff_color');  
+            }
+        }
+
+        var blnAllChecked = true; // Flag all of them as checked
+        $('.v_checkbox:not(.all)').each(function() { // Loop through all checkboxes that aren't "all"
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').addClass('diff_color');
+                submit.prop('disabled', false);
+            } else {
+                $(this).closest('tr').removeClass('diff_color');
+                blnAllChecked = false; // If one is not checked, flag all as not checked
+            }
+        });
+        
+        if (blnAllChecked) {
+            $('.v_checkbox.all').closest('tr').addClass('diff_color');
+            $('.v_checkbox.all').prop('checked', true);
+        } else {
+            $('.v_checkbox.all').closest('tr').removeClass('diff_color');
+            $('.v_checkbox.all').prop('checked', false);
+        }
+        };
+
+        $(document).on('click', '.pv', testing);
+        $(document).on('click', 'input[type="checkbox"].v_checkbox', testing);
+        //end delete
+        ////////////////////////////////////////////////////////////////////////////////////
+
+        //edit data
+        ///////////////////////////
+        var testing1 = function (e) {
+        var submit = $('#sedit_button');
+        var checkbox = $(this);
+        if ($(this).is('td')) {
+            checkbox = $(this).find('input[type="checkbox"].v_checkbox1');
+        }
+
+        submit.prop('disabled', true); // Disable submit button
+
+        checkbox.prop('checked', !checkbox.is(':checked')); // Change checked property
+        
+        var blnAllChecked = true; // Flag all of them as checked
+        $('.v_checkbox1:not(.all)').each(function() { // Loop through all checkboxes that aren't "all"
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').children('.sname').attr('contenteditable','true');
+                $(this).closest('tr').children('.sdes').attr('contenteditable','true');
+                $(this).closest('tr').children('.simage').attr('contenteditable','true');
+                $(this).closest('tr').children('.stask').attr('contenteditable','true');
+                submit.prop('disabled', false); // enable submit if one is checked
+            } else {
+                $(this).closest('tr').children('.sname').attr('contenteditable','false');
+                $(this).closest('tr').children('.sdes').attr('contenteditable','false');
+                $(this).closest('tr').children('.simage').attr('contenteditable','false');
+                $(this).closest('tr').children('.stask').attr('contenteditable','false');
+                blnAllChecked = false; // If one is not checked, flag all as not checked
+            }
+        });
+        };
+
+        $(document).on('click', '.pv1', testing1);
+        $(document).on('click', 'input[type="checkbox"].v_checkbox1', testing1);
+        //end delete
+        ////////////////////////////////////////////////////////////////////////////////////
+
+        //submit delete
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var submit_delete = function(e){
+            var cont=confirm("Are you sure!");
+            if(cont==0) return;
+            $("#body_stable").find('tr').each(function(){
+                if($(this).children('.pv').children('.v_checkbox').is(":checked")){
+                    var sid = $(this).children('th').text();
+                    $.ajax({
+                        // The link we are accessing.
+                        url: "/assignment2/Admin/deleteService",
+                            
+                        // The type of request.
+                        type: "POST",
+                        data: {sid: sid},
+                        // The type of data that is getting returned.
+                        dataType: "html",
+  
+                        success: function (strData) {
+                            if(strData!='true') alert("something went wrong!");
+                        }
+                    });
+                    updateTable();
+                }
+            });
+        };
+        $(document).on('click', '#sdel_button', submit_delete);
+        //end submit delete
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        //submit change
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var submit_change = function(e){
+            var cont=confirm("Are you sure!");
+            if(cont==0) return;
+            $("#body_stable").find('tr').each(function(){
+                if($(this).children('.pv1').children('.v_checkbox1').is(":checked")){
+                    //////////////////////////////////////////////////////////////////
+                    var sid = $(this).children('th').text();
+                    var sname = $(this).children('.sname').text();
+                    var sdes = $(this).children('.sdes').text();
+                    var simage = $(this).children('.simage').text();
+                    var stask = $(this).children('.stask').text();
+                    var surl = "/assignment2/Admin/updateService";
+                    $.ajax({
+                        // The link we are accessing.
+                        url: "/assignment2/Admin/updateService",
+                            
+                        // The type of request.
+                        type: "POST",
+                        data: {sid: sid, sname: sname, sdes: sdes, simage: simage, stask: stask},
+                        // The type of data that is getting returned.
+                        dataType: "html",
+  
+                        success: function (strData) {
+                            if(strData!='true') alert("something went wrong!");
+                        }
+                    });
+                    updateTable();
+                    //////////////////////////////////////////////////////////////////
+                }
+            });
+        };
+        $(document).on('click', '#sedit_button', submit_change);
+        //end submit change
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        //submit add
+        /////////////////////////////////////////////////////////////////////////////////////////
+        $(document).on('click','#sadd_button_submit',function(){
+            var sname = $('#name_add').val();
+            var sdes=$('#des_add').val();
+            var simage=$('#image_add').val();
+            var stask=$('#task_add').val();
+            //testing data here
+            ////////////////////
+            $.ajax({
+                // The link we are accessing.
+                url: "/assignment2/Admin/insertService",
+                    
+                // The type of request.
+                type: "POST",
+                data: {sname: sname, sdes: sdes, simage: simage, stask: stask},
+                // The type of data that is getting returned.
+                dataType: "html",
+
+                success: function (strData) {
+                    if(strData!='true') alert("something went wrong!");
+                }
+            });
+            updateTable();
+           
+        });
+        //end submit add
+        /////////////////////////////////////////////////////////////////////////////////////////
+        
+        //return button
+        ///////////////////////////////////////////////////
+        $(document).on('click','#sreturn',function(){
+            updateTable();
+        });
+        //end return button
+        //////////////////////////////////////////////////
+    </script>
 </body>
 </html>
