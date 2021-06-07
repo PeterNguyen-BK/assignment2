@@ -1,0 +1,325 @@
+html, body {
+    padding: 0;
+    height: 100%;
+    margin: 0;
+    /* font: 400 15px/1.8 "Lato", sans-serif; */
+    color: #777;
+    background-attachment: fixed;
+}
+
+.header {
+    width: 100%;
+    height: 116px;
+    z-index: 2;
+    transition-duration: 0.5s;
+}
+
+.sticky {
+    animation: slideInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.5s;
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    width: 170px;
+    height: 100px;
+}
+
+.navbar {
+    width: 100%;
+    z-index: 1;
+    background-color: transparent !important;
+}
+
+.navbar .non-display {
+    display: none;
+}
+
+.navbar-brand {
+    margin: 0 200px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar-collapse {
+    width: 100% !important;
+    justify-content: center;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-item {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+}
+
+.search button {
+    width: 113px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+}
+
+.header .btn:focus {
+    box-shadow: none;
+}
+
+.search .dropdown-menu {
+    width: 250px;
+    padding: 5px 10px;
+    top : 130% !important;
+    left: -120% !important;
+}
+
+.search .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    right: 32px;
+    border-bottom: 10px solid rgb(194, 194, 194);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+} 
+
+.search .dropdown-menu input {
+    padding: 5px 10px;
+}
+
+#userRegister {
+	width: 40%;
+	margin: 0 auto;
+}
+
+.search-responsive {display: none !important;}
+
+#userLogin img{
+    width: 20px;
+    height: 20px;
+}
+
+#userMenu button{
+    background-color: transparent;
+}
+
+.content {
+    height: auto;
+    position: relative;
+}
+
+#loading-image {
+    position: absolute;
+    top: 32%;
+    left: 47%;
+    display: block;
+    width: 50px;
+    height: 50px;
+	z-index: 1;
+}
+
+#layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.589);
+    width: 100%;
+    height: 100%;
+}
+
+#page-header {
+	height: 550px;
+	background-image: url("../img/bg4.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	flex-direction: column;
+}
+
+#page-header p {
+	color: white;
+	font-weight: lighter;
+	font-size: 24px;
+}
+
+#page-header h1 {
+	color: white;
+}
+
+
+#header180 {
+	height: 100px;
+}
+#header1801 {
+	height: 80px;
+	line-height: 1.6;
+	font-size: 18px;
+	font-weight: 700;
+	color: #ffffff;
+}
+#header1801 a{
+	font-weight: 400;
+	color: #ffffff;
+}
+.he1 {
+	color: #ffffff;
+}
+.content img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	
+}
+
+#bfgg {
+	background-color: rgb(39, 45, 46);
+	color: #ffffff;
+	padding: 10px;
+}
+
+.footer1 , .footer2, .footer3, .footer4 {
+    color: #ddd;
+}
+.lienhe, .banggia, .gioithieu, .dichvufooter{
+    font-size: large;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #282E34 !important;
+    margin-top: 20px;
+}
+
+.content-footer a{
+    color: goldenrod;
+}
+
+.content-footer a:hover{
+    color: aquamarine;
+}
+
+.content-footer{
+    text-align: justify;
+}
+
+#gallery .grid-col-1{height: 500px}
+#gallery .grid-col-1-2{height: 250px}
+#gallery .grid-col-1-3{height:166.66666666667px}
+#gallery .grid-col-2-3{height: 333.33333333333px}
+#gallery .grid-col-1-4{height: 125px}
+#gallery .grid-col-3-4{height: 375px}
+
+@media only screen and (max-width: 991px) {
+	#gallery .grid-col-1{height: 333.33333333333px}
+    #gallery .grid-col-1-2{height: 166.66666666667px}
+    #gallery .grid-col-1-3{height:111.11111111111px}
+    #gallery .grid-col-2-3{height: 222.22222222222px}
+    #gallery .grid-col-1-4{height: 83.333333333333px}
+    #gallery .grid-col-3-4{height: 250px}
+
+	.navbar {
+        padding: 8px 8px;
+    }
+
+    .navbar .non-display {
+        display: block;
+    }
+
+    .navbar .navbar-collapse .navbar-brand {
+        display: none;
+    }
+
+    .navbar .navbar-toggler {
+        padding: 3px;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .search-bar {
+        display: block !important;
+    }
+
+    .search-responsive {
+        display: block !important;
+    }
+
+    .search-responsive img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .search-responsive button {
+        width: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: transparent;
+    }
+    
+    .search-responsive .dropdown-toggle::after {
+        color: rgb(0, 0, 0);
+    }
+    
+    .header .search-responsive .btn:focus {
+        box-shadow: none;
+    }
+    
+    .search-responsive .dropdown-menu {
+        padding: 5px 10px;
+        top : 130% !important;
+        left: -260% !important;
+    }
+    
+    .search-responsive .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        right: 5px;
+        border-bottom: 10px solid rgb(255, 255, 255);
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+    } 
+    
+    .search-responsive .dropdown-menu input {
+        padding: 5px 10px;
+    }
+
+    .content .introduce2 {
+        padding: 40px 30px;
+    }
+
+    .content .message {
+        width: 250px;
+    }
+
+    .content .message .slide-effect p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+	#gallery .grid-col-1{height: 500px}
+    #gallery .grid-col-1-2{height: 250px}
+    #gallery .grid-col-1-3{height:166.66666666667px}
+    #gallery .grid-col-2-3{height: 333.33333333333px}
+    #gallery .grid-col-1-4{height: 125px}
+    #gallery .grid-col-3-4{height: 375px}
+}
+
+@media only screen and (max-width: 550px) {
+	#gallery .grid-col-1{height: 333.33333333333px}
+    #gallery .grid-col-1-2{height: 166.66666666667px}
+    #gallery .grid-col-1-3{height:111.11111111111px}
+    #gallery .grid-col-2-3{height: 222.22222222222px}
+    #gallery .grid-col-1-4{height: 83.333333333333px}
+    #gallery .grid-col-3-4{height: 250px}
+}

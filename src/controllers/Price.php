@@ -14,9 +14,11 @@ class Price extends Controller {
     }
 
     function payment($package, $sid) {
-        $uid = $_SESSION["user"];
-        $data = $this->ServiceModel->getDetailPriceService($sid);
-        $data2 = $this->UserModel->getDetailUser($uid);
+        if (isset($_SESSION["login"])) {
+            $uid = $_SESSION["user"];
+            $data = $this->ServiceModel->getDetailPriceService($sid);
+            $data2 = $this->UserModel->getDetailUser($uid);
+        }
     }
 }
 ?>

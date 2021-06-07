@@ -24,15 +24,15 @@ $(document).ready(function() {
                 success: function(data) {
                     if (data == "No") {
                         swal({
-                            title: "Login!",
-                            text: "Invalid Email or Password!",
+                            title: "Đăng nhập!",
+                            text: "Email hoặc mật khẩu không hợp lệ!",
                             icon: "error",
                         });
                     }else {
                         $("#exampleModal").modal("hide");
                         swal({
-                            title: "Login!",
-                            text: "Login successfully!",
+                            title: "Đăng nhập!",
+                            text: "Đăng nhập thành công!",
                             icon: "success",
                             button: false
                         });
@@ -47,8 +47,8 @@ $(document).ready(function() {
             });
         } else {
             swal({
-                title: "Login!",
-                text: "Please fill in all field to login!",
+                title: "Đăng nhập!",
+                text: "Vui lòng điền đầy đủ thông tin để đăng nhập!",
                 icon: "warning"
             });
         }
@@ -57,8 +57,8 @@ $(document).ready(function() {
 
     $("#logout").click(function(e) {
         swal({
-            title: "Logout",
-            text: "Are you sure to logout?",
+            title: "Đăng xuất",
+            text: "Bạn có chắc chắn muốn đăng xuất?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -70,8 +70,8 @@ $(document).ready(function() {
                     type: "GET",
                     success: function(data) {
                         swal({
-                            title: "Logout!",
-                            text: "Logout successfully!",
+                            title: "Đăng xuất!",
+                            text: "Đăng xuất thành công!",
                             icon: "success",
                             button: false
                         });

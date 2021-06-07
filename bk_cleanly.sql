@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2021 at 08:35 AM
+-- Generation Time: Jun 07, 2021 at 11:09 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -66,7 +66,8 @@ INSERT INTO `rating` (`RID`, `star_rating`, `comment`, `time`, `SID`, `UID`) VAL
 (1, 3, 'Dịch vụ uy tín, nhân viên làm cẩn thận sạch sẽ. Đúng giờ, thân thiện', '31/05/2021', 1, 12),
 (4, 4, 'Chất lượng', '31/05/2021', 1, 12),
 (10, 2, 'Nhân viên làm không cẩn thận', '31/05/2021', 1, 12),
-(11, 1, 'Quá tệ', '31/05/2021', 1, 12);
+(11, 1, 'Quá tệ', '31/05/2021', 1, 12),
+(12, 5, 'vip vcl ', '07/06/2021', 1, 29);
 
 -- --------------------------------------------------------
 
@@ -101,21 +102,23 @@ CREATE TABLE `user` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` varchar(10) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UID`, `first_name`, `last_name`, `address`, `phone`, `email`, `password`) VALUES
-(1, 'Peter', 'Nguyễn', 'Thành phố Hồ Chí Minh', 967123456, 'pete@gmail.com', 'asdfghjkl'),
-(2, 'John', 'Nguyễn', 'Bình Dương', 977456789, 'john@gmail.com', 'zxcvbnm'),
-(4, 'Nasaki', 'Nguyen', 'Vung Tau', 945789456, 'johnnguyen156109@gmail.com', '$2y$10$.F2gQ.0i/.IP6./66CXAt.7duxPAxZPS32MB4.6jctn3JHRU.8HNq'),
-(11, 'Kyle', 'Nguyen', 'Kim Long', 912345615, 'abc@gmail.com', '$2y$10$5L7RR4X98lTYC5.9T/2E2OJE5lnvaw8zbTjLMSRoBtuspBx7NyY5S'),
-(12, 'Thuan', 'Nguyen', 'BRVT', 912345678, 'peter@gmail.com', '$2y$10$8BkRDymm6uVBA9OLqEVbb./pdUzgtxXtJ8y1WMXLwnE4byCaxixd6');
+INSERT INTO `user` (`UID`, `first_name`, `last_name`, `address`, `phone`, `email`, `password`, `active`) VALUES
+(1, 'Peter', 'Nguyễn', 'Thành phố Hồ Chí Minh', '0967123456', 'pete@gmail.com', 'asdfghjkl', 1),
+(2, 'John', 'Nguyễn', 'Bình Dương', '0977456789', 'john@gmail.com', 'zxcvbnm', 1),
+(11, 'Kyle', 'Nguyen', 'Kim Long', '0912345615', 'abc@gmail.com', '$2y$10$5L7RR4X98lTYC5.9T/2E2OJE5lnvaw8zbTjLMSRoBtuspBx7NyY5S', 1),
+(12, 'Thuan', 'Nguyen', 'BRVT', '0912345678', 'peter@gmail.com', '$2y$10$8BkRDymm6uVBA9OLqEVbb./pdUzgtxXtJ8y1WMXLwnE4byCaxixd6', 1),
+(29, 'Đức', 'Thạch', 'Phường Phước Trung, Thành phố Bà Rịa, Tỉnh Bà Rịa ', '0947185273', 'ducthach.1403@gmail.com', '$2y$10$BXsxB7PtubUB19BVtdyZ6.hxKPH3CXT1SkPGJKm1TyLOME3NIVyvq', 1),
+(33, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0967040272', 'johnnguyen156109@gmail.com', '$2y$10$YaboKjqvqteuBvJ.C8HSGu.Ba47LjFY21TB.7AIWuNugMFRrRGzz6', 1);
 
 --
 -- Indexes for dumped tables
@@ -156,7 +159,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `service`
@@ -168,7 +171,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables

@@ -11,39 +11,61 @@
 <body>
     <?php require_once "./src/views/layouts/header.php"?>
     <div class="content">
+        <img src="/assignment2/public/img/circles-menu-1.gif" alt="" id="loading-image">
+        <div id="layer"></div>
         <div class="avatar">
             <img width="260" height="260" src="/assignment2/public/img/avt.png" alt="">
-            <?php while($row = mysqli_fetch_assoc($data[0])) {?>
+            <?php while($row = mysqli_fetch_assoc($data[0])) { $address = explode(", ", $row["address"]);?>
             <h3><?php echo $row["first_name"]." ".$row["last_name"] ?></h3>
             <h5 style="font-weight: lighter;"><?php echo $row["email"] ?></h5>
-            <?php } ?>
+            <?php if (intval($row["active"]) == 0) echo "<h6 style=\"color: red;\">Tài khoản chưa kích hoạt</h6>" ?>
+            
+            <?php if ($row["active"] == 1) {?> 
             <button class="btn btn-secondary btn-block" id="editInfo" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Edit Profile
+                Cập nhật thông tin
             </button>
+            <?php }else {?>
+            <span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần kích hoạt tài khoản"> 
+                <button type="button" style="pointer-events: none;" class="btn btn-secondary btn-block" disabled>Cập nhật thông tin</button>
+            </span>
+            <?php } ?>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    <form action="" method="post">
+                    <form>
                         <div class="form-group">
                             <label for="firstName">Họ</label>
-                            <input type="text" name="fname" class="form-control" id="firstName">
+                            <input type="text" name="fname" class="form-control" id="inputFirstName" value="<?php echo $row["first_name"]?>">
+                            <small id="invalidFname" class="form-text" style="color: red;"></small>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Tên</label>
-                            <input type="text" name="lname" class="form-control" id="lastName">
+                            <input type="text" name="lname" class="form-control" id="inputLastName" value="<?php echo $row["last_name"]?>">
+                            <small id="invalidLname" class="form-text" style="color: red;"></small>
                         </div>
                         <div class="form-group">
-                            <label for="address">Địa chỉ</label>
-                            <input type="text" name="address" class="form-control" id="address">
+                            <label for="address">Tỉnh/Thành phố</label>
+                            <input type="text" name="address" class="form-control" id="city" value="<?php echo $address[2]?>">
+                            <small id="invalidAddress" class="form-text" style="color: red;"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Quận/Huyện</label>
+                            <input type="text" name="address" class="form-control" id="district" value="<?php echo $address[1]?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Phường/Xã</label>
+                            <input type="text" name="address" class="form-control" id="ward" value="<?php echo $address[0]?>">
                         </div>
                         <div class="form-group">
                             <label for="phone">Số điện thoại</label>
-                            <input type="number" name="phone" class="form-control" id="phone">
+                            <input type="number" name="phone" class="form-control" id="inputPhone" value="<?php echo $row["phone"]?>">
+                            <small id="invalidPhone" class="form-text" style="color: red;"></small>
                         </div>
-                        <button type="submit" name="btnUpdateInfo" class="btn btn-success btn-sm">Cập nhật</button>
+                        <button type="button" name="btnUpdateInfo" id="btnUpdateInfo" class="btn btn-success btn-sm">Cập nhật</button>
                         <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="collapse" data-target="#collapseExample">Cancel</button>
                     </form>
                 </div>
             </div>
+            <?php } ?>
         </div>
         <div class="user-information">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -86,6 +108,6 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="/assignment2/public/scripts/script.js"></script>
+    <script src="/assignment2/public/scripts/userInfo.js"></script>
 </body>
 </html>
