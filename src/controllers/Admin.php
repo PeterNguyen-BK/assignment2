@@ -17,6 +17,15 @@ class Admin extends Controller {
       
     }
 
+    function showPrice(){
+        $result = $this->ServiceModel->getPriceService();
+        while ($row = mysqli_fetch_array($result)){
+          $output[]=$row;
+        }
+        print(json_encode($output));
+        
+      }
+
     function updateService(){
         $sid = $_POST["sid"];
         $sname = $_POST["sname"];

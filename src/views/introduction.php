@@ -18,6 +18,7 @@
             display: block;
             max-height: 400px;
             overflow-y : scroll;
+            width: 100%;
         }
         .mg10{
             margin: 10px;
@@ -54,6 +55,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="/assignment2/public/scripts/script.js"></script>
     <script>
+        //service page
+        ///////////////////////////////////////////////////////
         //change
         $(document).on('click','#user-tab',function(){
             $('#user').removeClass('show');
@@ -146,8 +149,6 @@
             data=data+'<button type="button" class="btn btn-success mg10" id="sedit_button" disabled>Save change</button>';
             data=data+'<button type="button" class="btn btn-success mg10" id="sadd_button" >Add service</button>';
             document.getElementById("service").innerHTML = data;
-            document.getElementById("user").innerHTML = "<h4>this is user page</h4>";
-            document.getElementById("price").innerHTML = "<h4>this is price page</h4>";
 		    }
       	});
         }
@@ -260,7 +261,7 @@
 
         $(document).on('click', '.pv1', testing1);
         $(document).on('click', 'input[type="checkbox"].v_checkbox1', testing1);
-        //end delete
+        //end edit
         ////////////////////////////////////////////////////////////////////////////////////
 
         //submit delete
@@ -366,6 +367,152 @@
         });
         //end return button
         //////////////////////////////////////////////////
+        //end service page
+        //////////////////////////////////////////////////
+
+        //price page
+        ///////////////////////////////////////////////////
+        $(document).ready(updateTable1());
+
+        function updateTable1(){
+            $.ajax({
+          // The link we are accessing.
+          url: "/assignment2/Admin/showPrice",
+            
+          // The type of request.
+          type: "get",
+            
+          // The type of data that is getting returned.
+          dataType: "html",
+
+          success: function( strData ){
+            var json_object = JSON.parse(strData);
+            var data = '<table class="table">'+
+                            '<thead>'+
+                                '<tr>'+
+                                '<th class="pv_p">Delete<input type="checkbox" class="v_checkbox_p all" /></th>'+
+                                '<th class="pv1_p">Edit</th>'+
+                                '<th scope="col">SID</th>'+
+                                '<th scope="col">package_in_time</th>'+
+                                '<th scope="col">package_in_month</th>'+
+                                '<th scope="col">package_in_year</th>'+
+                                '<th scope="col">unit</th>'+
+                                '</tr>'+
+                            '</thead>'+
+                            '<tbody id="body_ptable">';
+            for (var i = 0; i < json_object.length; i++) {
+                data=data+'<tr>';
+                data=data+'<td class="pv_p"><input type="checkbox" class="v_checkbox_p" /></td>';
+                data=data+'<td class="pv1_p"><input type="checkbox" class="v_checkbox1_p" /></td>';
+                data=data+'<th scope="row">';
+                data=data+json_object[i].SID;
+                data=data+'</th>';
+                data=data+'<td contenteditable="false" class="spackage_in_time">';
+                data=data+json_object[i].package_in_time;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="spackage_in_month">';
+                data=data+json_object[i].package_in_month;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="spackage_in_year">';
+                data=data+json_object[i].package_in_year;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="sunit">';
+                data=data+json_object[i].unit;
+                data=data+'</td>';
+                data=data+'</tr>';
+            }
+            data=data+'</tbody>';
+            data=data+'</table>';
+            data=data+'<button type="button" class="btn btn-success  mg10" id="pdel_button" disabled>Delete</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="pedit_button" disabled>Save change</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="padd_button" >Add service</button>';
+            document.getElementById("price").innerHTML = data;
+		    }
+      	});
+        }
+         //delete data
+        ///////////////////////////
+        var testing_p = function (e) {
+        var submit = $('#pdel_button');
+        var checkbox = $(this);
+        if ($(this).is('td')||$(this).is('th')) {
+            checkbox = $(this).find('input[type="checkbox"].v_checkbox_p');
+        }
+
+        submit.prop('disabled', true); // Disable submit button
+
+        checkbox.prop('checked', !checkbox.is(':checked')); // Change checked property
+        
+        if (checkbox.hasClass('all')) { // If this is "all"
+            $('.v_checkbox_p:not(.all)').prop('checked', checkbox.is(':checked'));  // Set all other to same as "all" 
+            if (checkbox.is(':checked')) { // change colour of "all" tr
+                checkbox.closest('tr').addClass('diff_color');  
+            } else {
+                checkbox.closest('tr').removeClass('diff_color');  
+            }
+        }
+
+        var blnAllChecked = true; // Flag all of them as checked
+        $('.v_checkbox_p:not(.all)').each(function() { // Loop through all checkboxes that aren't "all"
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').addClass('diff_color');
+                submit.prop('disabled', false);
+            } else {
+                $(this).closest('tr').removeClass('diff_color');
+                blnAllChecked = false; // If one is not checked, flag all as not checked
+            }
+        });
+        
+        if (blnAllChecked) {
+            $('.v_checkbox_p.all').closest('tr').addClass('diff_color');
+            $('.v_checkbox_p.all').prop('checked', true);
+        } else {
+            $('.v_checkbox_p.all').closest('tr').removeClass('diff_color');
+            $('.v_checkbox_p.all').prop('checked', false);
+        }
+        };
+
+        $(document).on('click', '.pv_p', testing_p);
+        $(document).on('click', 'input[type="checkbox"].v_checkbox_p', testing_p);
+        //end delete
+        ////////////////////////////////////////////////////////////////////////////////////
+        //edit data
+        ///////////////////////////
+        var testing1_p = function (e) {
+        var submit = $('#pedit_button');
+        var checkbox = $(this);
+        if ($(this).is('td')) {
+            checkbox = $(this).find('input[type="checkbox"].v_checkbox1_p');
+        }
+
+        submit.prop('disabled', true); // Disable submit button
+
+        checkbox.prop('checked', !checkbox.is(':checked')); // Change checked property
+        
+        var blnAllChecked = true; // Flag all of them as checked
+        $('.v_checkbox1_p:not(.all)').each(function() { // Loop through all checkboxes that aren't "all"
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').children('.spackage_in_time').attr('contenteditable','true');
+                $(this).closest('tr').children('.spackage_in_month').attr('contenteditable','true');
+                $(this).closest('tr').children('.spackage_in_year').attr('contenteditable','true');
+                $(this).closest('tr').children('.sunit').attr('contenteditable','true');
+                submit.prop('disabled', false); // enable submit if one is checked
+            } else {
+                $(this).closest('tr').children('.spackage_in_time').attr('contenteditable','false');
+                $(this).closest('tr').children('.spackage_in_month').attr('contenteditable','false');
+                $(this).closest('tr').children('.spackage_in_year').attr('contenteditable','false');
+                $(this).closest('tr').children('.sunit').attr('contenteditable','false');
+                blnAllChecked = false; // If one is not checked, flag all as not checked
+            }
+        });
+        };
+
+        $(document).on('click', '.pv1_p', testing1_p);
+        $(document).on('click', 'input[type="checkbox"].v_checkbox1_p', testing1_p);
+        //end edit
+        ////////////////////////////////////////////////////////////////////////////////////
+        //end price page
+        ///////////////////////////////////////////////////
     </script>
 </body>
 </html>
