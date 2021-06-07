@@ -5,8 +5,30 @@ class ServiceModel extends Database {
         return mysqli_query($this->connect, $qr);
     }
 
-    public function insertService($name, $description, $image) {
-        $qr = "INSERT INTO service VALUES(null, '$name', '$description', '$image')";
+    public function insertService($name, $description, $image, $task) {
+        $qr = "INSERT INTO service VALUES(null, '$name', '$description', '$image', '$task')";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        $last_id=1;
+        if ($temp) {
+            $last_id = mysqli_insert_id($this->connect);
+            return $last_id;
+        }
+        return json_encode($result);
+    }
+
+    public function deleteService($SID){
+        $qr ="DELETE FROM service WHERE SID=$SID";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        if ($temp) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
+
+    public function updateService($SID,$name, $description, $image, $task) {
+        $qr = "UPDATE service SET name='$name',description='$description',image='$image', task='$task' WHERE SID=$SID";
         $result = false;
         $temp = mysqli_query($this->connect, $qr);
         if ($temp) {
@@ -44,10 +66,66 @@ class ServiceModel extends Database {
         $qr = "SELECT * FROM service, price WHERE service.sid = price.sid";
         return mysqli_query($this->connect, $qr);
     }
-    
-    public function getDetailPriceService($sid) {
-        $qr = "SELECT * FROM service, price WHERE price.sid = $sid service.sid = price.sid";
-        return mysqli_query($this->connect, $qr);
+
+    public function insertPriceService($SID,$ptime, $pmonth, $pyear, $punit) {
+        $qr = "INSERT INTO price VALUES($SID, '$ptime', '$pmonth', '$pyear', '$punit')";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        if ($temp) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
+
+    public function deletePriceService($SID){
+        $qr ="DELETE FROM price WHERE SID=$SID";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        if ($temp) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
+
+    public function updatePriceService($SID,$ptime,$pmonth,$pyear,$punit) {
+        $qr = "UPDATE price SET package_in_time='$ptime',package_in_month='$pmonth',package_in_year='$pyear', unit='$punit' WHERE SID=$SID";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        if ($temp) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
+
+    public function valider_service($name, $description, $image, $task){
+        if($name=='') return false;
+        else if($description=='') return false;
+        else if($image=='') return false;
+        else if($task=='') return false;
+        else if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $name)) return false;
+        else if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $description)) return false;
+        else if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $task)) return false;
+        else if(strlen($name)>26) return false;
+        else if(strlen($description)>1000) return false;
+        else if(strlen($image)>100) return false;
+        else if(strlen($task)>200) return false;
+        return true;
+    }
+
+    public function valider_price($ptime,$pmonth,$pyear,$punit){
+        if($ptime=='') return false;
+        else if($pmonth=='') return false;
+        else if($pyear=='') return false;
+        else if($punit=='') return false;
+        else if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $punit)) return false;
+        else if(!is_numeric($ptime)) return false;
+        else if(!is_numeric($pmonth)) return false;
+        else if(!is_numeric($pyear)) return false;
+        else if(strlen($ptime)>9) return false;
+        else if(strlen($pmonth)>9) return false;
+        else if(strlen($pyear)>9) return false;
+        else if(strlen($punit)>10) return false;
+        return true;
     }
 }
 ?>

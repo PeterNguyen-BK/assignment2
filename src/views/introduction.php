@@ -14,11 +14,13 @@
         .diff_color {
             background: gray;
         }
-        .sctable {
-            display: block;
-            max-height: 400px;
-            overflow-y : scroll;
-            width: 100%;
+        .my-custom-scrollbar {
+        position: relative;
+        height: 400px;
+        overflow: auto;
+        }
+        .table-wrapper-scroll-y {
+        display: block;
         }
         .mg10{
             margin: 10px;
@@ -55,6 +57,89 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="/assignment2/public/scripts/script.js"></script>
     <script>
+        //check function
+        //////////////////////////
+        function check_valid(name, des, image_path, task){
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if(name==""){
+                alert("plese fill name field!");
+                return false;
+            } else if(des==""){
+                alert("plese fill description field!");
+                return false;
+            } else if(image_path==""){
+                alert("plese fill image's path field!");
+                return false;
+            } else if(task==""){
+                alert("plese fill task field!");
+                return false;
+            } else if(name.length>26){
+                alert("name is too long!")
+                return false;
+            } else if(des.length>1000){
+                alert("the description is too long!")
+                return false;
+            } else if(image_path.length>100){
+                alert("the image's path is too long!")
+                return false;
+            } else if(task.length>200){
+                alert("the task is too long!")
+                return false;
+            } else if(format.test(name)){
+                alert("the name field has special character!")
+                return false;
+            } else if(format.test(des)){
+                alert("the description field has special character!")
+                return false;
+            } else if(format.test(task)){
+                alert("the task field has special character!")
+                return false;
+            }
+            return true;
+        }
+        function check_valid1(ptime, pmonth, pyear, punit){
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if(ptime==""){
+                alert("plese fill package_in_time field!");
+                return false;
+            } else if(pmonth==""){
+                alert("plese fill package_in_month field!");
+                return false;
+            } else if(pyear==""){
+                alert("plese fill package_in_year field!");
+                return false;
+            } else if(punit==""){
+                alert("plese fill unit field!");
+                return false;
+            } else if(ptime.length>9){
+                alert("package_in_time is too long!")
+                return false;
+            } else if(pmonth.length>9){
+                alert("package_in_month is too long!")
+                return false;
+            } else if(pyear.length>9){
+                alert("package_in_year is too long!")
+                return false;
+            } else if(punit.length>10){
+                alert("the unit is too long!")
+                return false;
+            } else if(format.test(punit)){
+                alert("the unit field has special character!")
+                return false;
+            } else if(isNaN(ptime)){
+                alert("package_in_time is not a number!")
+                return false;
+            } else if(isNaN(pmonth)){
+                alert("package_in_month is not a number!")
+                return false;
+            } else if(isNaN(pyear)){
+                alert("package_in_year is not a number!")
+                return false;
+            }
+            return true;
+        }
+        //end check function
+        //////////////////////////////
         //service page
         ///////////////////////////////////////////////////////
         //change
@@ -68,6 +153,7 @@
 
             $('#user').addClass('show');
             $('#user').addClass('active');
+            updateTable2();
         });
 
         $(document).on('click','#service-tab',function(){
@@ -80,6 +166,7 @@
 
             $('#service').addClass('show');
             $('#service').addClass('active');
+            updateTable();
         });
 
         $(document).on('click','#price-tab',function(){
@@ -92,6 +179,7 @@
 
             $('#price').addClass('show');
             $('#price').addClass('active');
+            updateTable1();
         });
         //
         $(document).ready(updateTable());
@@ -109,7 +197,7 @@
 
           success: function( strData ){
             var json_object = JSON.parse(strData);
-            var data = '<table class="table sctable">'+
+            var data = '<div class="table-wrapper-scroll-y my-custom-scrollbar"><table class="table">'+
                             '<thead>'+
                                 '<tr>'+
                                 '<th class="pv">Delete<input type="checkbox" class="v_checkbox all" /></th>'+
@@ -144,7 +232,7 @@
                 data=data+'</tr>';
             }
             data=data+'</tbody>';
-            data=data+'</table>';
+            data=data+'</table></div>';
             data=data+'<button type="button" class="btn btn-success  mg10" id="sdel_button" disabled>Delete</button>';
             data=data+'<button type="button" class="btn btn-success mg10" id="sedit_button" disabled>Save change</button>';
             data=data+'<button type="button" class="btn btn-success mg10" id="sadd_button" >Add service</button>';
@@ -168,9 +256,27 @@
                             '<tbody id="body_stable">'+
                             '<tr>'+
                             '<td><input type="text" class="form-control" id="name_add" placeholder="Enter name"></td>'+
-                            '<td><textarea class="form-control" id="des_add" rows="12" placeholder="Enter description"></textarea></td>'+
+                            '<td><textarea class="form-control" id="des_add" rows="9" placeholder="Enter description"></textarea></td>'+
                             '<td><input type="text" class="form-control" id="image_add" placeholder="Enter image path"></td>'+
-                            '<td><textarea class="form-control" id="task_add" rows="12" placeholder="Enter task"></textarea></td>'+
+                            '<td><textarea class="form-control" id="task_add" rows="9" placeholder="Enter task"></textarea></td>'+
+                            '</tr>'+
+                            '</tbody>'+
+                            '</table>'+'<br>';
+            data=data + '<table class="table">'+
+                            '<thead>'+
+                                '<tr>'+
+                                '<th scope="col">package_in_time</th>'+
+                                '<th scope="col">package_in_month</th>'+
+                                '<th scope="col">package_in_year</th>'+
+                                '<th scope="col">unit</th>'+
+                                '</tr>'+
+                            '</thead>'+
+                            '<tbody id="body_ptable">'+
+                            '<tr>'+
+                            '<td><input type="text" class="form-control" id="time_add_p" placeholder="Enter package_in_time"></td>'+
+                            '<td><input type="text" class="form-control" id="month_add_p" placeholder="Enter package_in_month"></td>'+
+                            '<td><input type="text" class="form-control" id="year_add_p" placeholder="Enter package_in_year"></td>'+
+                            '<td><input type="text" class="form-control" id="unit_add_p" placeholder="Enter unit"></td>'+
                             '</tr>'+
                             '</tbody>'+
                             '</table>';
@@ -274,7 +380,7 @@
                     var sid = $(this).children('th').text();
                     $.ajax({
                         // The link we are accessing.
-                        url: "/assignment2/Admin/deleteService",
+                        url: "/assignment2/Admin/deleteService/",
                             
                         // The type of request.
                         type: "POST",
@@ -284,9 +390,11 @@
   
                         success: function (strData) {
                             if(strData!='true') alert("something went wrong!");
+                            //alert(strData);
                         }
                     });
                     updateTable();
+                    updateTable1();
                 }
             });
         };
@@ -307,7 +415,8 @@
                     var sdes = $(this).children('.sdes').text();
                     var simage = $(this).children('.simage').text();
                     var stask = $(this).children('.stask').text();
-                    var surl = "/assignment2/Admin/updateService";
+                    var cont1 = check_valid(sname,sdes,simage,stask);
+                    if(cont1==false) return;
                     $.ajax({
                         // The link we are accessing.
                         url: "/assignment2/Admin/updateService",
@@ -320,6 +429,7 @@
   
                         success: function (strData) {
                             if(strData!='true') alert("something went wrong!");
+                            //alert(strData);
                         }
                     });
                     updateTable();
@@ -338,7 +448,15 @@
             var sdes=$('#des_add').val();
             var simage=$('#image_add').val();
             var stask=$('#task_add').val();
+            var ptime = $('#time_add_p').val();
+            var pmonth=$('#month_add_p').val();
+            var pyear=$('#year_add_p').val();
+            var punit=$('#unit_add_p').val();
             //testing data here
+            var cont1 = check_valid(sname,sdes,simage,stask);
+            if(cont1==false) return;
+            var cont2 = check_valid1(ptime,pmonth,pyear,punit);
+            if(cont2==false) return;
             ////////////////////
             $.ajax({
                 // The link we are accessing.
@@ -346,15 +464,17 @@
                     
                 // The type of request.
                 type: "POST",
-                data: {sname: sname, sdes: sdes, simage: simage, stask: stask},
+                data: {sname: sname, sdes: sdes, simage: simage, stask: stask, ptime: ptime, pmonth: pmonth, pyear: pyear, punit: punit},
                 // The type of data that is getting returned.
                 dataType: "html",
 
                 success: function (strData) {
                     if(strData!='true') alert("something went wrong!");
+                    //alert(strData);
                 }
             });
             updateTable();
+            updateTable1();
            
         });
         //end submit add
@@ -377,7 +497,7 @@
         function updateTable1(){
             $.ajax({
           // The link we are accessing.
-          url: "/assignment2/Admin/showPrice",
+          url: "/assignment2/Price/showPrice",
             
           // The type of request.
           type: "get",
@@ -387,10 +507,9 @@
 
           success: function( strData ){
             var json_object = JSON.parse(strData);
-            var data = '<table class="table">'+
+            var data = '<div class="table-wrapper-scroll-y my-custom-scrollbar"><table class="table">'+
                             '<thead>'+
                                 '<tr>'+
-                                '<th class="pv_p">Delete<input type="checkbox" class="v_checkbox_p all" /></th>'+
                                 '<th class="pv1_p">Edit</th>'+
                                 '<th scope="col">SID</th>'+
                                 '<th scope="col">package_in_time</th>'+
@@ -402,7 +521,6 @@
                             '<tbody id="body_ptable">';
             for (var i = 0; i < json_object.length; i++) {
                 data=data+'<tr>';
-                data=data+'<td class="pv_p"><input type="checkbox" class="v_checkbox_p" /></td>';
                 data=data+'<td class="pv1_p"><input type="checkbox" class="v_checkbox1_p" /></td>';
                 data=data+'<th scope="row">';
                 data=data+json_object[i].SID;
@@ -422,60 +540,12 @@
                 data=data+'</tr>';
             }
             data=data+'</tbody>';
-            data=data+'</table>';
-            data=data+'<button type="button" class="btn btn-success  mg10" id="pdel_button" disabled>Delete</button>';
+            data=data+'</table></div>';
             data=data+'<button type="button" class="btn btn-success mg10" id="pedit_button" disabled>Save change</button>';
-            data=data+'<button type="button" class="btn btn-success mg10" id="padd_button" >Add service</button>';
             document.getElementById("price").innerHTML = data;
 		    }
       	});
         }
-         //delete data
-        ///////////////////////////
-        var testing_p = function (e) {
-        var submit = $('#pdel_button');
-        var checkbox = $(this);
-        if ($(this).is('td')||$(this).is('th')) {
-            checkbox = $(this).find('input[type="checkbox"].v_checkbox_p');
-        }
-
-        submit.prop('disabled', true); // Disable submit button
-
-        checkbox.prop('checked', !checkbox.is(':checked')); // Change checked property
-        
-        if (checkbox.hasClass('all')) { // If this is "all"
-            $('.v_checkbox_p:not(.all)').prop('checked', checkbox.is(':checked'));  // Set all other to same as "all" 
-            if (checkbox.is(':checked')) { // change colour of "all" tr
-                checkbox.closest('tr').addClass('diff_color');  
-            } else {
-                checkbox.closest('tr').removeClass('diff_color');  
-            }
-        }
-
-        var blnAllChecked = true; // Flag all of them as checked
-        $('.v_checkbox_p:not(.all)').each(function() { // Loop through all checkboxes that aren't "all"
-            if ($(this).is(':checked')) {
-                $(this).closest('tr').addClass('diff_color');
-                submit.prop('disabled', false);
-            } else {
-                $(this).closest('tr').removeClass('diff_color');
-                blnAllChecked = false; // If one is not checked, flag all as not checked
-            }
-        });
-        
-        if (blnAllChecked) {
-            $('.v_checkbox_p.all').closest('tr').addClass('diff_color');
-            $('.v_checkbox_p.all').prop('checked', true);
-        } else {
-            $('.v_checkbox_p.all').closest('tr').removeClass('diff_color');
-            $('.v_checkbox_p.all').prop('checked', false);
-        }
-        };
-
-        $(document).on('click', '.pv_p', testing_p);
-        $(document).on('click', 'input[type="checkbox"].v_checkbox_p', testing_p);
-        //end delete
-        ////////////////////////////////////////////////////////////////////////////////////
         //edit data
         ///////////////////////////
         var testing1_p = function (e) {
@@ -511,8 +581,181 @@
         $(document).on('click', 'input[type="checkbox"].v_checkbox1_p', testing1_p);
         //end edit
         ////////////////////////////////////////////////////////////////////////////////////
+        //submit change
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var submit_change1_p = function(e){
+            var cont=confirm("Are you sure!");
+            if(cont==0) return;
+            $("#body_ptable").find('tr').each(function(){
+                if($(this).children('.pv1_p').children('.v_checkbox1_p').is(":checked")){
+                    //////////////////////////////////////////////////////////////////
+                    var sid = $(this).children('th').text();
+                    var ptime = $(this).children('.spackage_in_time').text();
+                    var pmonth = $(this).children('.spackage_in_month').text();
+                    var pyear = $(this).children('.spackage_in_year').text();
+                    var punit = $(this).children('.sunit').text();
+                    $.ajax({
+                        // The link we are accessing.
+                        url: "/assignment2/Price/updatePrice",
+                            
+                        // The type of request.
+                        type: "POST",
+                        data: {sid: sid, ptime: ptime, pmonth: pmonth, pyear: pyear, punit: punit},
+                        // The type of data that is getting returned.
+                        dataType: "html",
+  
+                        success: function (strData) {
+                            //if(strData!='true') alert("something went wrong!");
+                            alert(strData);
+                        }
+                    });
+                    updateTable1();
+                    //////////////////////////////////////////////////////////////////
+                }
+            });
+        };
+        $(document).on('click', '#pedit_button', submit_change1_p);
+        //end submit change
+        /////////////////////////////////////////////////////////////////////////////////////////
         //end price page
         ///////////////////////////////////////////////////
+        //begin user page
+        ////////////////////////////////////////////////////////
+        $(document).ready(updateTable2());
+
+        function updateTable2(){
+            $.ajax({
+          // The link we are accessing.
+          url: "/assignment2/Admin/showUserList",
+            
+          // The type of request.
+          type: "get",
+            
+          // The type of data that is getting returned.
+          dataType: "html",
+
+          success: function( strData ){
+            var json_object = JSON.parse(strData);
+            var data = '<div class="table-wrapper-scroll-y my-custom-scrollbar"><table class="table">'+
+                            '<thead>'+
+                                '<tr>'+
+                                '<th class="pv_u">Delete<input type="checkbox" class="v_checkbox_u all" /></th>'+
+                                '<th scope="col">UID</th>'+
+                                '<th scope="col">Fist name</th>'+
+                                '<th scope="col">Last name</th>'+
+                                '<th scope="col">Adress</th>'+
+                                '<th scope="col">Phone</th>'+
+                                '<th scope="col">Email</th>'+
+                                '</tr>'+
+                            '</thead>'+
+                            '<tbody id="body_utable">';
+            for (var i = 0; i < json_object.length; i++) {
+                data=data+'<tr>';
+                data=data+'<td class="pv_u"><input type="checkbox" class="v_checkbox_u" /></td>';
+                data=data+'<th scope="row">';
+                data=data+json_object[i].UID;
+                data=data+'</th>';
+                data=data+'<td contenteditable="false" class="fname">';
+                data=data+json_object[i].first_name;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="lname">';
+                data=data+json_object[i].last_name;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="address">';
+                data=data+json_object[i].address;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="phone">';
+                data=data+json_object[i].phone;
+                data=data+'</td>';
+                data=data+'<td contenteditable="false" class="email">';
+                data=data+json_object[i].email;
+                data=data+'</td>';
+                data=data+'</tr>';
+            }
+            data=data+'</tbody>';
+            data=data+'</table></div>';
+            data=data+'<button type="button" class="btn btn-success  mg10" id="udel_button" disabled>Delete</button>';
+            document.getElementById("user").innerHTML = data;
+		    }
+      	});
+        }
+        //delete data
+        ///////////////////////////
+        var testing_u = function (e) {
+        var submit = $('#udel_button');
+        var checkbox = $(this);
+        if ($(this).is('td')||$(this).is('th')) {
+            checkbox = $(this).find('input[type="checkbox"].v_checkbox_u');
+        }
+
+        submit.prop('disabled', true); // Disable submit button
+
+        checkbox.prop('checked', !checkbox.is(':checked')); // Change checked property
+        
+        if (checkbox.hasClass('all')) { // If this is "all"
+            $('.v_checkbox_u:not(.all)').prop('checked', checkbox.is(':checked'));  // Set all other to same as "all" 
+            if (checkbox.is(':checked')) { // change colour of "all" tr
+                checkbox.closest('tr').addClass('diff_color');  
+            } else {
+                checkbox.closest('tr').removeClass('diff_color');  
+            }
+        }
+
+        var blnAllChecked = true; // Flag all of them as checked
+        $('.v_checkbox_u:not(.all)').each(function() { // Loop through all checkboxes that aren't "all"
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').addClass('diff_color');
+                submit.prop('disabled', false);
+            } else {
+                $(this).closest('tr').removeClass('diff_color');
+                blnAllChecked = false; // If one is not checked, flag all as not checked
+            }
+        });
+        
+        if (blnAllChecked) {
+            $('.v_checkbox_u.all').closest('tr').addClass('diff_color');
+            $('.v_checkbox_u.all').prop('checked', true);
+        } else {
+            $('.v_checkbox_u.all').closest('tr').removeClass('diff_color');
+            $('.v_checkbox_u.all').prop('checked', false);
+        }
+        };
+
+        $(document).on('click', '.pv_u', testing_u);
+        $(document).on('click', 'input[type="checkbox"].v_checkbox_u', testing_u);
+        //end delete
+        ////////////////////////////////////////////////////////////////////////////////////
+         //submit delete
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var submit_delete_u = function(e){
+            var cont=confirm("Are you sure!");
+            if(cont==0) return;
+            $("#body_utable").find('tr').each(function(){
+                if($(this).children('.pv_u').children('.v_checkbox_u').is(":checked")){
+                    var UID = $(this).children('th').text();
+                    $.ajax({
+                        // The link we are accessing.
+                        url: "/assignment2/Admin/deleteUser/",
+                            
+                        // The type of request.
+                        type: "POST",
+                        data: {UID: UID},
+                        // The type of data that is getting returned.
+                        dataType: "html",
+  
+                        success: function (strData) {
+                            if(strData!='true') alert("something went wrong!");
+                        }
+                    });
+                    updateTable2();
+                }
+            });
+        };
+        $(document).on('click', '#udel_button', submit_delete_u);
+        //end submit delete
+        /////////////////////////////////////////////////////////////////////////////////////////
+        //end user page
+        //////////////////////////////////////////////////////////
     </script>
 </body>
 </html>
