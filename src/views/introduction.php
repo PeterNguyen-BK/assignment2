@@ -596,7 +596,7 @@
                     var punit = $(this).children('.sunit').text();
                     $.ajax({
                         // The link we are accessing.
-                        url: "/assignment2/Price/updatePrice",
+                        url: "/assignment2/Price/updatePrice/",
                             
                         // The type of request.
                         type: "POST",
@@ -605,8 +605,8 @@
                         dataType: "html",
   
                         success: function (strData) {
-                            //if(strData!='true') alert("something went wrong!");
-                            alert(strData);
+                            if(strData!='true') alert("something went wrong!");
+                            //alert(strData);
                         }
                     });
                     updateTable1();
