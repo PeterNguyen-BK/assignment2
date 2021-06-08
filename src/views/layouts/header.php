@@ -57,7 +57,7 @@
                 </li>
                 <li>
                     <div class="dropdown search">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn dropdown-toggle search-icon" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- <img src="/assignment2/public/img/loupe.svg" alt=""> -->
                         <?php
                         if (!isset($_GET["url"]) || $_GET["url"] == 'Home/') 
@@ -65,8 +65,10 @@
                         else echo "<img src=\"/assignment2/public/img/loupe.svg\" alt=\"\">";
                         ?>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <div class="dropdown-menu" id="dropdown-service" aria-labelledby="dropdownMenuButton1">
+                            <input class="form-control mr-sm-2" id="search-service" type="search" placeholder="Search" aria-label="Search">
+                            <!-- <button type="button" class="btn btn-primary btn-sm">Search</button> -->
+                            <ul id="service-list" style="list-style-type: none; padding: 0;"></ul>
                         </div>
                     </div>
                 </li>
@@ -87,7 +89,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                             <a class="dropdown-item" href="/assignment2/User/">Thông tin tài khoản</a>
-                            <a class="dropdown-item" href="#">Thay đổi mật khẩu</a>
+                            <?php if (isset($_SESSION["admin"])) echo "<a class=\"dropdown-item\" href=\"/assignment2/Admin/\">Quản lý trang web</a>" ?>
                             <a class="dropdown-item" href="#" id="logout">Đăng xuất</a>
                         </div>
                     </div>

@@ -117,5 +117,57 @@ $(document).ready(function() {
                 }
             }
         });
-    })
+    });
+
+    $("#fileUpload").change(function() {
+        console.log($(this)[0].files[0]);
+        if ($(this)[0].files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $("#preview").attr("src", e.target.result);
+            }
+            reader.readAsDataURL($(this)[0].files[0])
+        }
+    });
+
+    $("#btnChangePwd").click(function() {
+        let old_pwd = $("#oldPassword").val();
+        let new_pwd = $("#newPassword").val();
+        let confirm_pwd = $("#confirmPassword").val();
+        $.ajax({
+            url: "/assignment2/User/changePassword/",
+            method: "POST",
+            data: {
+                old_pwd: old_pwd,
+                new_pwd: new_pwd,
+                confirm_pwd: confirm_pwd
+            },
+            success: function(data) {
+                if (data == "") {
+                    swal({
+                        title: "Cập nhật!",
+                        text: "Cập nhật thành công",
+                        icon: "success",
+                        button: true
+                    });
+                    $("#formChangePwd").trigger("reset");
+                } else {
+                    swal({
+                        title: "Cập nhật!",
+                        text: "Thông tin không hợp lệ",
+                        icon: "error",
+                        button: true
+                    });
+                }
+            }
+        });
+    });
+
+    // $("#btnUpdateAvatar").click(function() {
+    //     $.ajax({
+    //         url: "/assignment2/User/uploadImage/",
+    //         method: "POST",
+            
+    //     });
+    // });
 })

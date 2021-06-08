@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-9 col-sm-12 col-lg-9 text3col">
                             <h5>EMAIL</h5>
-                            <p>A1234321Ag@gmail.com</p>
+                            <p>bkcleanly@gmail.com</p>
                         </div>
                     </div>
                 </div>

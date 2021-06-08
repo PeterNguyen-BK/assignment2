@@ -74,7 +74,9 @@
                                 <li style="color:gray; text-decoration: line-through;"><img src="/assignment2/public/img/close.svg" alt=""> Trở thành thành viên VIP</li>
                             </ul>
                         </div>
-                        <a href="/assignment2/price/payment/0/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary">Đăng ký</a>
+                        <?php if (!isset($_SESSION["login"])) {?><span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần đăng nhập để đăng ký dịch vụ"> <?php } ?>
+                            <a href="/assignment2/price/payment/0/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
+                        <?php if (!isset($_SESSION["login"])) { ?> </span> <?php } ?>
                     </div>
                 </div>
 
@@ -91,7 +93,9 @@
                                 <li style="color:gray; text-decoration: line-through;"><img src="/assignment2/public/img/close.svg" alt=""> Trở thành thành viên VIP</li>
                             </ul>
                         </div>
-                        <a href="/assignment2/price/payment/1/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary">Đăng ký</a>
+                        <?php if (!isset($_SESSION["login"])) {?><span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần đăng nhập để đăng ký dịch vụ"> <?php } ?>
+                            <a href="/assignment2/price/payment/1/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
+                        <?php if (!isset($_SESSION["login"])) { ?> </span> <?php } ?>
                     </div>
                 </div>
 
@@ -111,7 +115,9 @@
                                 <li><img src="/assignment2/public/img/check-mark.png" alt=""> Trở thành thành viên VIP</li>
                             </ul>
                         </div>
-                        <a href="/assignment2/price/payment/2/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary">Đăng ký</a>
+                        <?php if (!isset($_SESSION["login"])) {?><span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần đăng nhập để đăng ký dịch vụ"> <?php } ?>
+                            <a href="/assignment2/price/payment/2/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
+                        <?php if (!isset($_SESSION["login"])) { ?> </span> <?php } ?>
                     </div>
                 </div>
             </div>

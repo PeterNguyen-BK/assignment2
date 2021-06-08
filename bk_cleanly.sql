@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2021 at 11:09 AM
+-- Generation Time: Jun 08, 2021 at 01:15 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -67,7 +67,8 @@ INSERT INTO `rating` (`RID`, `star_rating`, `comment`, `time`, `SID`, `UID`) VAL
 (4, 4, 'Chất lượng', '31/05/2021', 1, 12),
 (10, 2, 'Nhân viên làm không cẩn thận', '31/05/2021', 1, 12),
 (11, 1, 'Quá tệ', '31/05/2021', 1, 12),
-(12, 5, 'vip vcl ', '07/06/2021', 1, 29);
+(12, 5, 'vip vcl ', '07/06/2021', 1, 29),
+(13, 3, 'Tạm ổn', '08/06/2021', 1, 33);
 
 -- --------------------------------------------------------
 
@@ -88,8 +89,8 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`SID`, `name`, `description`, `image`, `task`) VALUES
-(1, 'Dịch vụ vệ sinh nhà xưởng', 'Nhà máy, nhà xưởng là nơi làm việc của nhiều công nhân, những người chịu trách nhiệm làm ra các sản phẩm uy tín chất lượng. Tất nhiên việc vệ sinh nơi làm việc là rất cần thiết để đảm bảo cho mọi người có một môi trường làm việc trong sạch, thoáng mát và chất lượng sản phầm làm ra phải ở mức cao nhất. Nếu không có một quy trình vệ sinh đúng cách sẽ khiến môi trường làm việc bị ẩm thấp, bốc mùi ảnh hương đến chất lượng sản phẩm. \r\nVí dụ: Đối với một nhà máy chế biến thực phẩm tươi sống thì việc vệ sinh là cực kỳ cần thiết để không ảnh hưởng đến chất lượng thực phẩm. \r\nDo đó, ở đây chúng tôi BK-Cleanly cung cấp dịch vụ vệ sinh nhà máy nhà xưởng với đội ngũ nhân viên uy tín chất lượng', '/assignment2/public/img/service6.jpg', 'Tổng vệ sinh và dọn phòng;Quét dọn;Nhặt và xử lý rác;Tẩy dầu mở;Vệ sinh tường trần;HVAC và làm sạch thông gió'),
-(3, 'Vệ sinh ghế sofa', 'Hiện nay hầu như nhà nào cũng có ít nhất một chiếc sofa. Một đồ dùng không thể thiếu trong không gian phòng khác của bạn, nó tạo cảm giác dễ chịu êm ái mỗi khi bạn nghỉ ngơi trên chiếc sofa đó. Không những vậy nó còn mang lại vẻ đẹp sang trọng cho căn nhà của bạn.\r\nNhưng sau một thời gian sử dụng thì chắc chắn rằng chiếc ghế của bạn sẽ bị ố và bám đầy bụi bẩn làm mất đi vẻ đẹp chiếc ghế hơn nữa bạn sẽ cảm thấy khó chịu bởi mùi hôi. Vậy làm sao để có thể làm sạch chiếc ghế sofa mà không lo mất họa tiết, bị hỏng?\r\nVì nhu cầu trên BK-Cleanly cung cấp đến quý khách hàng dịch vụ vệ sinh ghế sofa. Dịch vụ của chúng tôi được nhiều người tin dùng và có những phẩn hồi chất lượng', '/assignment2/public/img/service2.jpg', 'Tẩy vết bẩn bám trên ghế;Tẩy trắng;Hút bụi trong kẻ ghế;Vệ sinh gối tựa;Giặt bao gối tựa;Vệ sinh ghế phụ');
+(1, 'Dịch vụ vệ sinh nhà xưởng', 'Nhà máy, nhà xưởng là nơi làm việc của nhiều công nhân, những người chịu trách nhiệm làm ra các sản phẩm uy tín chất lượng. Tất nhiên việc vệ sinh nơi làm việc là rất cần thiết để đảm bảo cho mọi người có một môi trường làm việc trong sạch, thoáng mát và chất lượng sản phầm làm ra phải ở mức cao nhất. Nếu không có một quy trình vệ sinh đúng cách sẽ khiến môi trường làm việc bị ẩm thấp, bốc mùi ảnh hương đến chất lượng sản phẩm. \r\nVí dụ: Đối với một nhà máy chế biến thực phẩm tươi sống thì việc vệ sinh là cực kỳ cần thiết để không ảnh hưởng đến chất lượng thực phẩm. \r\nDo đó, ở đây chúng tôi BK-Cleanly cung cấp dịch vụ vệ sinh nhà máy nhà xưởng với đội ngũ nhân viên uy tín chất lượng', 'public/img/services/service6.jpg', 'Tổng vệ sinh và dọn phòng;Quét dọn;Nhặt và xử lý rác;Tẩy dầu mở;Vệ sinh tường trần;HVAC và làm sạch thông gió'),
+(3, 'Vệ sinh ghế sofa', 'Hiện nay hầu như nhà nào cũng có ít nhất một chiếc sofa. Một đồ dùng không thể thiếu trong không gian phòng khác của bạn, nó tạo cảm giác dễ chịu êm ái mỗi khi bạn nghỉ ngơi trên chiếc sofa đó. Không những vậy nó còn mang lại vẻ đẹp sang trọng cho căn nhà của bạn.\r\nNhưng sau một thời gian sử dụng thì chắc chắn rằng chiếc ghế của bạn sẽ bị ố và bám đầy bụi bẩn làm mất đi vẻ đẹp chiếc ghế hơn nữa bạn sẽ cảm thấy khó chịu bởi mùi hôi. Vậy làm sao để có thể làm sạch chiếc ghế sofa mà không lo mất họa tiết, bị hỏng?\r\nVì nhu cầu trên BK-Cleanly cung cấp đến quý khách hàng dịch vụ vệ sinh ghế sofa. Dịch vụ của chúng tôi được nhiều người tin dùng và có những phẩn hồi chất lượng', 'public/img/services/service2.jpg', 'Tẩy vết bẩn bám trên ghế;Tẩy trắng;Hút bụi trong kẻ ghế;Vệ sinh gối tựa;Giặt bao gối tựa;Vệ sinh ghế phụ');
 
 -- --------------------------------------------------------
 
@@ -105,20 +106,21 @@ CREATE TABLE `user` (
   `phone` varchar(10) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `active` int(1) NOT NULL
+  `active` int(1) NOT NULL,
+  `image` varchar(10000) DEFAULT NULL,
+  `admin` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UID`, `first_name`, `last_name`, `address`, `phone`, `email`, `password`, `active`) VALUES
-(1, 'Peter', 'Nguyễn', 'Thành phố Hồ Chí Minh', '0967123456', 'pete@gmail.com', 'asdfghjkl', 1),
-(2, 'John', 'Nguyễn', 'Bình Dương', '0977456789', 'john@gmail.com', 'zxcvbnm', 1),
-(11, 'Kyle', 'Nguyen', 'Kim Long', '0912345615', 'abc@gmail.com', '$2y$10$5L7RR4X98lTYC5.9T/2E2OJE5lnvaw8zbTjLMSRoBtuspBx7NyY5S', 1),
-(12, 'Thuan', 'Nguyen', 'BRVT', '0912345678', 'peter@gmail.com', '$2y$10$8BkRDymm6uVBA9OLqEVbb./pdUzgtxXtJ8y1WMXLwnE4byCaxixd6', 1),
-(29, 'Đức', 'Thạch', 'Phường Phước Trung, Thành phố Bà Rịa, Tỉnh Bà Rịa ', '0947185273', 'ducthach.1403@gmail.com', '$2y$10$BXsxB7PtubUB19BVtdyZ6.hxKPH3CXT1SkPGJKm1TyLOME3NIVyvq', 1),
-(33, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0967040272', 'johnnguyen156109@gmail.com', '$2y$10$YaboKjqvqteuBvJ.C8HSGu.Ba47LjFY21TB.7AIWuNugMFRrRGzz6', 1);
+INSERT INTO `user` (`UID`, `first_name`, `last_name`, `address`, `phone`, `email`, `password`, `active`, `image`, `admin`) VALUES
+(2, 'John', 'Nguyễn', 'Bình Dương', '0977456789', 'john@gmail.com', 'zxcvbnm', 1, NULL, 0),
+(11, 'Kyle', 'Nguyen', 'Kim Long', '0912345615', 'abc@gmail.com', '$2y$10$5L7RR4X98lTYC5.9T/2E2OJE5lnvaw8zbTjLMSRoBtuspBx7NyY5S', 1, NULL, 0),
+(12, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0912345678', 'peter@gmail.com', '$2y$10$jMVaVoZ6llIKCGPW6RiAuOHDtZVCBOVyNERV7nwCUNBVFIvVuJ6Ym', 1, 'public/img/avt/KTX.jpg', 0),
+(29, 'Đức', 'Thạch', 'Phường Phước Trung, Thành phố Bà Rịa, Tỉnh Bà Rịa ', '0947185273', 'ducthach.1403@gmail.com', '$2y$10$BXsxB7PtubUB19BVtdyZ6.hxKPH3CXT1SkPGJKm1TyLOME3NIVyvq', 1, NULL, 0),
+(33, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0967040272', 'johnnguyen156109@gmail.com', '$2y$10$YaboKjqvqteuBvJ.C8HSGu.Ba47LjFY21TB.7AIWuNugMFRrRGzz6', 1, 'public/img/avt/20200119083914_IMG_0770.JPG', 1);
 
 --
 -- Indexes for dumped tables
@@ -159,13 +161,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`

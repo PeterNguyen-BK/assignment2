@@ -137,8 +137,14 @@ class User extends Controller {
                     if (array_search($email, $row)) {
                         $check = true;
                         if (password_verify($pwd, $row["password"])) {
-                            $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
-                            $_SESSION["user"] = $row["UID"];
+                            if (intval($row["admin"]) == 1) {
+                                $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
+                                $_SESSION["user"] = $row["UID"];
+                                $_SESSION["admin"] = $row["UID"];
+                            } else {
+                                $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
+                                $_SESSION["user"] = $row["UID"];
+                            }
                             break;
                         } else {
                             $check = false;
@@ -185,9 +191,86 @@ class User extends Controller {
         } else echo "Fail";
     }
 
-    // function changePassword() {
+    function uploadImage() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileUpload"])) {
+            if ($_FILES["fileUpload"]["error"] > 0) {
+                echo "Hình ảnh tải lên lỗi";
+            } else {
+                $target_dir = "public/img/avt/";
+                $target_file   = $target_dir.basename($_FILES["fileUpload"]["name"]);
+                $allowUpload = true;
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                $maxfilesize = 10000000;
+                $allowtypes    = array('jpg', 'png', 'jpeg', 'JPG');
+                $check = getimagesize($_FILES["fileUpload"]["tmp_name"]);
+                if($check !== false) {
+                    $allowUpload = true;
+                } else {
+                    echo "File không đúng định dạng";
+                    $allowUpload = false;
+                }
+                // if (file_exists($target_file)) {
+                //     echo "Tên file đã tồn tại";
+                //     $allowUpload = false;
+                // }
 
-    // }
+                if ($_FILES["fileUpload"]["size"] > $maxfilesize) {
+                    echo "Ảnh vượt quá kích thước cho phép";
+                    $allowUpload = false;
+                }
+                if (!in_array($imageFileType,$allowtypes )) {
+                    echo "Chỉ được upload các định dạng JPG, PNG, JPEG, GIF";
+                    $allowUpload = false;
+                }
+                if ($allowUpload) {
+                    if (!move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $target_file)) {
+                        echo "Có lỗi xảy ra khi upload file.";
+
+                    } else { 
+                        $result = $this->UserModel->updateAvatar($target_file, $_SESSION["user"]);
+                        header("Location: /assignment2/User/");
+                    }
+                }
+            }
+        }
+    }
+
+    function changePassword() {
+        if (isset($_POST["confirm_pwd"])) {
+            $user = $this->UserModel->getDetailUser($_SESSION["user"]);
+            $row = mysqli_fetch_assoc($user);
+            $old_pwd = $_POST["old_pwd"];
+            $check = false;
+            if (strlen($old_pwd) == 0) {
+                $check = true;
+            } else if (!password_verify($old_pwd, $row["password"])) {
+                $check = true;
+            }
+
+            $new_pwd = $_POST["new_pwd"];
+            if (strlen($new_pwd) == 0) {
+                $check = true;
+            } else if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $new_pwd)) {
+                $check = true;
+            }
+
+            $confirm_pwd = $_POST["confirm_pwd"];
+            if (strlen($confirm_pwd) == 0) {
+                $check = true;
+            } else if ($confirm_pwd != $new_pwd) {
+                $check = true;
+            }
+            
+            if (!$check) {
+                $new_pwd = password_hash($new_pwd, PASSWORD_DEFAULT);
+                $result = $this->UserModel->updatePassword($new_pwd, $_SESSION["user"]);
+                if (!$result) echo "Fail"; 
+            } else echo "Fail";
+        }
+
+    }
+
+    
 
     function logout() {
         // unset($_SESSION["login"]);

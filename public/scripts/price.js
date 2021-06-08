@@ -1,3 +1,5 @@
 $(document).ready(function() {
-    // alert(document.cookie);
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
 });

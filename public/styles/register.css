@@ -61,7 +61,7 @@ html, body {
     height: 20px;
 }
 
-.search button {
+.search .search-icon {
     width: 113px;
     padding-left: 5px;
     padding-right: 5px;

@@ -16,7 +16,7 @@
         <div class="service">
         <?php while($row = mysqli_fetch_assoc($data[1])) {?>
             <div class="service-img">
-                <img src="<?php echo $row["image"] ?>" alt="">
+                <img src="/assignment2/<?php echo $row["image"] ?>" alt="">
             </div>
             <div class="service-info">
                 <h3><?php echo $row["name"] ?></h3>
@@ -39,11 +39,12 @@
                     <?php 
                         $tasks = explode(";", $row["task"]);
                         foreach($tasks as $task) {
-                            echo "<li><img src=\"/assignment2/public/img/check-mark.png\" alt=\"\">".$task."</li>";
+                            echo "<li><img src=\"/assignment2/public/img/check-mark.png\" alt=\"\">".trim($task)."</li>";
                         }
                     ?>
                 </ul>
-                <a href="/assignment2/Price/#service<?php echo $row["SID"]; ?>">Đăng ký</a>
+                
+                <a href="/assignment2/Price/#service<?php echo $row["SID"]; ?>" role="button" class="btn btn-primary">Đăng ký</a>
             </div>
         
         </div>
@@ -81,21 +82,30 @@
         <div class="rating" id="customer-rating">
         <?php if ($data[2]->{"num_rows"} > 0) { ?>
         <?php while($row = mysqli_fetch_assoc($data[2])) {?>
-            <div class="customer-comment">
-                <h5><?php echo $row["first_name"]." ".$row["last_name"]?></h5>
-                <span>Đánh giá: </span>
-                <?php for ($i = 0; $i < 5; $i++) {
-                    if ($i < intval($row["star_rating"])) {
-                        echo "<span class=\"fa fa-star\" style=\"color: #FD4;\"></span>";
-                    } else echo "<span class=\"fa fa-star-o\"></span>";
-                }
-                if (intval($row["star_rating"]) == 1) echo "<span> <b>Rất không hài lòng</b></span>";
-                else if (intval($row["star_rating"]) == 2) echo "<span> <b>Không hài lòng</b></span>";
-                else if (intval($row["star_rating"]) == 3) echo "<span> <b>Bình thường</b></span>";
-                else if (intval($row["star_rating"]) == 4) echo "<span> <b>Hài Lòng</b></span>";
-                else echo "<span> <b>Cực kỳ hài Lòng</b></span>";
-                echo "<p style=\"font-size: 12px;\">Nhận xét vào ".$row["time"]."</p>"; ?>
-                <p><?php echo $row["comment"];?></p>
+            <div class="customer-comment d-flex justify-content-between">
+                <div class="info-comment" style="width: 20%;">
+                    <div class="user-comment d-flex align-items-center">
+                        <div class="img-avatar">
+                            <img src="<?php if ($row["image"] != NULL) echo "/assignment2"."/".$row["image"];  else echo "/assignment2/public/img/avt.png";?>"  alt="">
+                        </div>
+                        <h6 style="margin: 0 5px; height: 25px;"><?php echo $row["first_name"]." ".$row["last_name"]?></h6>
+                    </div>
+                    <?php echo "<p style=\"font-size: 12px;\">Nhận xét vào ".$row["time"]."</p>"; ?>
+                </div>
+                <div class="comment-rating" style="width: 75%;">
+                    <span>Đánh giá: </span>
+                    <?php for ($i = 0; $i < 5; $i++) {
+                        if ($i < intval($row["star_rating"])) {
+                            echo "<span class=\"fa fa-star\" style=\"color: #FD4;\"></span>";
+                        } else echo "<span class=\"fa fa-star-o\"></span>";
+                    }
+                    if (intval($row["star_rating"]) == 1) echo "<span class=\"feeling\"> <b>Rất không hài lòng</b></span>";
+                    else if (intval($row["star_rating"]) == 2) echo "<span class=\"feeling\"> <b>Không hài lòng</b></span>";
+                    else if (intval($row["star_rating"]) == 3) echo "<span class=\"feeling\"> <b>Bình thường</b></span>";
+                    else if (intval($row["star_rating"]) == 4) echo "<span class=\"feeling\"> <b>Hài Lòng</b></span>";
+                    else echo "<span class=\"feeling\"> <b>Cực kỳ hài Lòng</b></span>";?>
+                    <p style="margin-top: 10px;"><?php echo $row["comment"];?></p>
+                </div>
             </div>
         <?php } } else {?> <p>Hiện tại chưa có nhận xét</p><?php }?>
         </div>
