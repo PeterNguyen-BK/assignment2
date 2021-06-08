@@ -594,6 +594,8 @@
                     var pmonth = $(this).children('.spackage_in_month').text();
                     var pyear = $(this).children('.spackage_in_year').text();
                     var punit = $(this).children('.sunit').text();
+                    var cont1 = check_valid1(ptime,pmonth,pyear,punit);
+                    if(cont1==false) return;
                     $.ajax({
                         // The link we are accessing.
                         url: "/assignment2/Price/updatePrice/",
