@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2021 at 01:15 PM
+-- Generation Time: Jun 08, 2021 at 11:35 AM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `bk_cleanly`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `UID` int(11) DEFAULT NULL,
+  `service` varchar(26) DEFAULT NULL,
+  `money` int(9) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`UID`, `service`, `money`) VALUES
+(29, 'Dịch vụ vệ sinh nhà xưởng', 90000),
+(29, 'Vệ sinh ghế sofa', 80000),
+(29, 'Dịch vụ vệ sinh nhà xưởng', 60000),
+(29, 'Dịch vụ vệ sinh nhà xưởng', 60000),
+(29, 'Dịch vụ vệ sinh nhà xưởng', 60000);
 
 -- --------------------------------------------------------
 
