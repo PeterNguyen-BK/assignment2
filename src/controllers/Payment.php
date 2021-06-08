@@ -18,7 +18,10 @@
 	                $name = $row["name"];
 	            }
 	            $this->ServiceModel->addPayment($uid, $name, $money);
-	            $this->View("home",[]);
+	            $user = $this->UserModel->getDetailUser($_SESSION["user"]);
+	            $comment = $this->ServiceModel->getComment($_SESSION["user"]);
+	            $service = $this->ServiceModel->selectPayment($_SESSION["user"]);
+	            $this->View("userInfo", [$user, $comment, $service]);
 	        }
 	    }
 	}
