@@ -50,6 +50,20 @@ class Price extends Controller {
             $uid = $_SESSION["user"];
             $data = $this->ServiceModel->getDetailPriceService($sid);
             $data2 = $this->UserModel->getDetailUser($uid);
+            $price = $this->ServiceModel->getPriceSID($sid);
+            $data3 = 0;
+            while ($row = mysqli_fetch_assoc($price)) {
+                if ($package == 0){
+                    $data3 = $row["package_in_time"];
+                }
+                elseif ($package == 1) {
+                    $data3 = $row["package_in_month"];
+                }
+                else {
+                    $data3 = $row["package_in_year"];
+                }
+            }
+            $this->View("payment", [$data, $data2, $data3, $package]);
         }
     }
 }

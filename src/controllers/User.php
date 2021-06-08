@@ -12,7 +12,8 @@ class User extends Controller {
         if (isset($_SESSION["login"])){
             $user = $this->UserModel->getDetailUser($_SESSION["user"]);
             $comment = $this->ServiceModel->getComment($_SESSION["user"]);
-            $this->View("userInfo", [$user, $comment]);
+            $service = $this->ServiceModel->selectPayment($_SESSION["user"]);
+            $this->View("userInfo", [$user, $comment, $service]);
             if (isset($_POST["btnUpdateInfo"])) {
                 $fname = $_POST["fname"];
                 $lname = $_POST["lname"];
