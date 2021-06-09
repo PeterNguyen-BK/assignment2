@@ -87,6 +87,7 @@ class User extends Controller {
                 $check = true;
             }
             if (!$check) {
+                $result = $this->UserModel->insertUser($fname, $lname, $addr, $phone, $email, $pwd);
                 $to      = $email; 
                 $subject = 'Signup | Verification'; 
                 $message = '
@@ -103,9 +104,7 @@ class User extends Controller {
                 http://localhost/assignment2/User/verifyEmail/'.$email.''; // Our message above including the link
                                     
                 $headers = 'From:BKCleanly@gmail.com'; // Set from headers
-                if (mail($to, $subject, $message, $headers)) {
-                    $result = $this->UserModel->insertUser($fname, $lname, $addr, $phone, $email, $pwd);
-                }
+                mail($to, $subject, $message, $headers);
             } else echo "Fail";
         } else $this->View("register", []);
     }
