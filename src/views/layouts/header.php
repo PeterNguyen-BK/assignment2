@@ -4,7 +4,6 @@
         echo "<nav class=\"navbar navbar-expand-lg navbar-dark\">";
     else echo "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">";
     ?>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,11 +13,9 @@
                 echo "<img class=\"logo\" src=\"/assignment2/public/img/logo-light-01.png\" alt=\"\">";
             else echo "<img class=\"logo\" src=\"/assignment2/public/img/logo-dark-01.png\" alt=\"\">";
             ?>
-            <!-- <img class="logo" src="/assignment2/public/img/logo-dark-01.png" alt=""> -->
         </a>
         <div class="dropdown search-responsive">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <!-- <img src="/assignment2/public/img/loupe.svg" alt=""> -->
             <?php
             if (!isset($_GET["url"]) ||  $_GET["url"] == 'Home/') 
                 echo "<img src=\"/assignment2/public/img/search.png\" alt=\"\">";
@@ -58,7 +55,7 @@
                 <li>
                     <div class="dropdown search">
                         <button class="btn dropdown-toggle search-icon" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <!-- <img src="/assignment2/public/img/loupe.svg" alt=""> -->
+                        
                         <?php
                         if (!isset($_GET["url"]) || $_GET["url"] == 'Home/') 
                             echo "<img src=\"/assignment2/public/img/search.png\" alt=\"\">";
@@ -67,7 +64,7 @@
                         </button>
                         <div class="dropdown-menu" id="dropdown-service" aria-labelledby="dropdownMenuButton1">
                             <input class="form-control mr-sm-2" id="search-service" type="search" placeholder="Search" aria-label="Search">
-                            <!-- <button type="button" class="btn btn-primary btn-sm">Search</button> -->
+                        
                             <ul id="service-list" style="list-style-type: none; padding: 0;"></ul>
                         </div>
                     </div>

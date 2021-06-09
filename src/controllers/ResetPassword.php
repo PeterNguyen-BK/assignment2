@@ -58,13 +58,14 @@ class ResetPassword extends Controller {
                     <label for=\"exampleInputPassword1\">Xác nhận mật khẩu</label>
                     <input type=\"password\" class=\"form-control\" id=\"confirmPassword\">
                 </div>
-                <button type=\"submit\" id=\"btnChangePwd\" class=\"btn btn-primary\">Cập nhật mật khẩu</button>
+                <button type=\"button\" id=\"btnChangePwd\" class=\"btn btn-primary\">Cập nhật mật khẩu</button>
             </form>";
         } else echo "Fail";
     }
 
     function changePassword() {
         if (isset($_POST["confirm_pwd"])) {
+            $check = false;
             $new_pwd = $_POST["new_pwd"];
             if (strlen($new_pwd) == 0) {
                 $check = true;
@@ -82,7 +83,7 @@ class ResetPassword extends Controller {
             if (!$check) {
                 $new_pwd = password_hash($new_pwd, PASSWORD_DEFAULT);
                 $result = $this->UserModel->updatePassword($new_pwd, $_SESSION["idChange"]);
-                if (!$result) echo "Fail";
+                if (!$result) echo "Fail1";
                 else session_destroy();
             } else echo "Fail";
         }

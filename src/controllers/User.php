@@ -86,7 +86,6 @@ class User extends Controller {
             if (strlen($addr) == 0) {
                 $check = true;
             }
-            // $result = $this->UserModel->insertUser($fname, $lname, $addr, $phone, $email, $pwd);
             if (!$check) {
                 $to      = $email; 
                 $subject = 'Signup | Verification'; 
@@ -101,7 +100,7 @@ class User extends Controller {
                 ------------------------
                 
                 Please click this link to activate your account:
-                http://908bffca3ddc.ngrok.io/assignment2/User/verifyEmail/'.$email.''; // Our message above including the link
+                http://localhost/assignment2/User/verifyEmail/'.$email.''; // Our message above including the link
                                     
                 $headers = 'From:BKCleanly@gmail.com'; // Set from headers
                 if (mail($to, $subject, $message, $headers)) {
@@ -222,10 +221,6 @@ class User extends Controller {
                     echo "File không đúng định dạng";
                     $allowUpload = false;
                 }
-                // if (file_exists($target_file)) {
-                //     echo "Tên file đã tồn tại";
-                //     $allowUpload = false;
-                // }
 
                 if ($_FILES["fileUpload"]["size"] > $maxfilesize) {
                     echo "Ảnh vượt quá kích thước cho phép";
@@ -286,10 +281,7 @@ class User extends Controller {
     
 
     function logout() {
-        // unset($_SESSION["login"]);
-        // unset($_SESSION["user"]);
         session_destroy();
-        // header("Location: /assignment2/Home/");
     }
 }
 

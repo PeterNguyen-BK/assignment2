@@ -165,6 +165,26 @@ class ServiceModel extends Database {
         return json_encode($result);
     }
 
+    public function deletePayment($uid) {
+        $qr ="DELETE FROM payment WHERE UID=$uid";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        if ($temp) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
+    
+    public function deleteUserRating($uid) {
+        $qr ="DELETE FROM rating WHERE UID=$uid";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        if ($temp) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
+
     public function selectPayment($uid) {
         $qr = "SELECT * FROM payment WHERE payment.uid = $uid";
         return mysqli_query($this->connect, $qr);

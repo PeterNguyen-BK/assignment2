@@ -59,10 +59,6 @@ class Admin extends Controller {
                         echo "File không đúng định dạng";
                         $allowUpload = false;
                     }
-                    // if (file_exists($target_file)) {
-                    //     echo "Tên file đã tồn tại";
-                    //     $allowUpload = false;
-                    // }
 
                     if ($image["size"] > $maxfilesize) {
                         echo "Ảnh vượt quá kích thước cho phép";
@@ -146,6 +142,8 @@ class Admin extends Controller {
     function deleteUser(){
         if (isset($_SESSION["admin"]) && isset($_POST["UID"])) {
             $UID = $_POST['UID'];
+            $this->ServiceModel->deleteUserRating($UID);
+            $this->ServiceModel->deletePayment($UID);
             $result = $this->UserModel->deleteUser($UID);
             echo $result;
         } else header("Location: /assignment2/Home/");

@@ -1,7 +1,7 @@
         //check function
         //////////////////////////
         function check_valid(name, des, image_path, task){
-            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var format = /[!@#$%^&*()_+\-=\[\]{}':"\\|,.<>\/?]+/;
             if(name==""){
                 alert("plese fill name field!");
                 return false;
@@ -141,8 +141,8 @@
             var data = '<div class="table-wrapper-scroll-y my-custom-scrollbar"><table class="table">'+
                             '<thead>'+
                                 '<tr>'+
-                                '<th class="pv">Delete<input type="checkbox" class="v_checkbox all" /></th>'+
-                                '<th class="pv1">Edit</th>'+
+                                '<th class="pv">Xóa<input type="checkbox" class="v_checkbox all" /></th>'+
+                                '<th class="pv1">Chỉnh sửa</th>'+
                                 '<th scope="col">SID</th>'+
                                 '<th scope="col">Name</th>'+
                                 '<th scope="col">Description</th>'+
@@ -174,9 +174,9 @@
             }
             data=data+'</tbody>';
             data=data+'</table></div>';
-            data=data+'<button type="button" class="btn btn-success  mg10" id="sdel_button" disabled>Delete</button>';
-            data=data+'<button type="button" class="btn btn-success mg10" id="sedit_button" disabled>Save change</button>';
-            data=data+'<button type="button" class="btn btn-success mg10" id="sadd_button" >Add service</button>';
+            data=data+'<button type="button" class="btn btn-success  mg10" id="sdel_button" disabled>Xóa</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="sedit_button" disabled>Lưu thay đổi</button>';
+            data=data+'<button type="button" class="btn btn-success mg10" id="sadd_button" >Thêm dịch vụ</button>';
             document.getElementById("service").innerHTML = data;
 		    }
       	});
@@ -358,7 +358,7 @@
                     var sdes = $(this).children('.sdes').text();
                     var simage = $(this).children('.simage').text();
                     var stask = $(this).children('.stask').text();
-                    var cont1 = check_valid(sname,sdes,simage,stask);
+                    // var cont1 = check_valid(sname,sdes,simage,stask);
                     if(cont1==false) return;
                     $.ajax({
                         // The link we are accessing.
@@ -582,7 +582,7 @@
             var data = '<div class="table-wrapper-scroll-y my-custom-scrollbar"><table class="table">'+
                             '<thead>'+
                                 '<tr>'+
-                                '<th class="pv_u">Delete<input type="checkbox" class="v_checkbox_u all" /></th>'+
+                                '<th class="pv_u">Xóa<input type="checkbox" class="v_checkbox_u all" /></th>'+
                                 '<th scope="col">UID</th>'+
                                 '<th scope="col">Fist name</th>'+
                                 '<th scope="col">Last name</th>'+
@@ -617,7 +617,7 @@
             }
             data=data+'</tbody>';
             data=data+'</table></div>';
-            data=data+'<button type="button" class="btn btn-success  mg10" id="udel_button" disabled>Delete</button>';
+            data=data+'<button type="button" class="btn btn-success  mg10" id="udel_button" disabled>Xóa</button>';
             document.getElementById("user").innerHTML = data;
 		    }
       	});

@@ -4,11 +4,7 @@ class Database {
     protected $host = "localhost";
     protected $username = "root";
     protected $password = "";
-    protected $database = "BK_Cleanly";
-    // protected $host = "remotemysql.com";
-    // protected $username = "xlrjPPuZmo";
-    // protected $password = "jgIpYJcTiK";
-    // protected $database = "xlrjPPuZmo";
+    protected $database = "bk_cleanly";
 
     function __construct() {
         $this->connect = mysqli_connect($this->host, $this->username, $this->password);

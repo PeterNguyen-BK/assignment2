@@ -58,5 +58,36 @@ $(document).ready(function() {
                 }
             }
         });
-    })
+    });
+
+    $(".content").on("click", "#btnChangePwd", function() {
+        let new_pwd = $("#newPassword").val();
+        let confirm_pwd = $("#confirmPassword").val();
+        $.ajax({
+            url: "/assignment2/ResetPassword/changePassword/",
+            method: "POST",
+            data: {
+                new_pwd: new_pwd,
+                confirm_pwd: confirm_pwd
+            },
+            success: function(data) {
+                if (data == "") {
+                    swal({
+                        title: "Cập nhật!",
+                        text: "Cập nhật thành công",
+                        icon: "success",
+                        button: true
+                    });
+                    $("#formChangePwd").trigger("reset");
+                } else {
+                    swal({
+                        title: "Cập nhật!",
+                        text: "Thông tin không hợp lệ",
+                        icon: "error",
+                        button: true
+                    });
+                }
+            }
+        });
+    });
 });

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2021 at 11:35 AM
+-- Generation Time: Jun 09, 2021 at 10:35 AM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,23 +26,20 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `payment`
 --
-
+CREATE DATABASE `bk_cleanly`;
 CREATE TABLE `payment` (
-  `UID` int(11) DEFAULT NULL,
-  `service` varchar(26) DEFAULT NULL,
-  `money` int(9) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `UID` int(11) NOT NULL,
+  `service` varchar(26) NOT NULL,
+  `money` int(9) NOT NULL,
+  `package` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`UID`, `service`, `money`) VALUES
-(29, 'Dịch vụ vệ sinh nhà xưởng', 90000),
-(29, 'Vệ sinh ghế sofa', 80000),
-(29, 'Dịch vụ vệ sinh nhà xưởng', 60000),
-(29, 'Dịch vụ vệ sinh nhà xưởng', 60000),
-(29, 'Dịch vụ vệ sinh nhà xưởng', 60000);
+INSERT INTO `payment` (`UID`, `service`, `money`, `package`) VALUES
+(37, 'Dịch vụ vệ sinh nhà xưởng', 90000, 1);
 
 -- --------------------------------------------------------
 
@@ -86,12 +83,9 @@ CREATE TABLE `rating` (
 --
 
 INSERT INTO `rating` (`RID`, `star_rating`, `comment`, `time`, `SID`, `UID`) VALUES
-(1, 3, 'Dịch vụ uy tín, nhân viên làm cẩn thận sạch sẽ. Đúng giờ, thân thiện', '31/05/2021', 1, 12),
-(4, 4, 'Chất lượng', '31/05/2021', 1, 12),
-(10, 2, 'Nhân viên làm không cẩn thận', '31/05/2021', 1, 12),
-(11, 1, 'Quá tệ', '31/05/2021', 1, 12),
 (12, 5, 'vip vcl ', '07/06/2021', 1, 29),
-(13, 3, 'Tạm ổn', '08/06/2021', 1, 33);
+(13, 3, 'Tạm ổn', '08/06/2021', 1, 33),
+(14, 4, 'Tuyệt vời', '09/06/2021', 1, 37);
 
 -- --------------------------------------------------------
 
@@ -139,15 +133,19 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UID`, `first_name`, `last_name`, `address`, `phone`, `email`, `password`, `active`, `image`, `admin`) VALUES
-(2, 'John', 'Nguyễn', 'Bình Dương', '0977456789', 'john@gmail.com', 'zxcvbnm', 1, NULL, 0),
-(11, 'Kyle', 'Nguyen', 'Kim Long', '0912345615', 'abc@gmail.com', '$2y$10$5L7RR4X98lTYC5.9T/2E2OJE5lnvaw8zbTjLMSRoBtuspBx7NyY5S', 1, NULL, 0),
-(12, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0912345678', 'peter@gmail.com', '$2y$10$jMVaVoZ6llIKCGPW6RiAuOHDtZVCBOVyNERV7nwCUNBVFIvVuJ6Ym', 1, 'public/img/avt/KTX.jpg', 0),
 (29, 'Đức', 'Thạch', 'Phường Phước Trung, Thành phố Bà Rịa, Tỉnh Bà Rịa ', '0947185273', 'ducthach.1403@gmail.com', '$2y$10$BXsxB7PtubUB19BVtdyZ6.hxKPH3CXT1SkPGJKm1TyLOME3NIVyvq', 1, NULL, 0),
-(33, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0967040272', 'johnnguyen156109@gmail.com', '$2y$10$YaboKjqvqteuBvJ.C8HSGu.Ba47LjFY21TB.7AIWuNugMFRrRGzz6', 1, 'public/img/avt/20200119083914_IMG_0770.JPG', 1);
+(33, 'Thuan', 'Nguyen', 'Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh', '0967040272', 'johnnguyen156109@gmail.com', '$2y$10$YaboKjqvqteuBvJ.C8HSGu.Ba47LjFY21TB.7AIWuNugMFRrRGzz6', 1, 'public/img/avt/20200119083914_IMG_0770.JPG', 1),
+(37, 'Nguyen', 'Peter', 'Xã Kim Long, Huyện Châu Đức, Tỉnh Bà Rịa ', '0967040272', 'hihihuhuhaha1452@gmail.com', '$2y$10$2qgi/Bh3gaDlJaYnIU9ZGunF1FC3/VT.4qx6yb54KUdf3qgCVi5NW', 1, 'public/img/avt/avatar.png', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`UID`,`service`,`money`);
 
 --
 -- Indexes for table `price`
@@ -184,23 +182,29 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`);
 
 --
 -- Constraints for table `price`
