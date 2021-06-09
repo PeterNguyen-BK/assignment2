@@ -66,9 +66,14 @@ class ServiceModel extends Database {
         $qr = "SELECT * FROM service, price WHERE service.sid = price.sid";
         return mysqli_query($this->connect, $qr);
     }
+
+    public function getPriceSID($sid) {
+        $qr = "SELECT * FROM price WHERE price.sid = $sid";
+        return mysqli_query($this->connect, $qr);
+    }
     
     public function getDetailPriceService($sid) {
-        $qr = "SELECT * FROM service, price WHERE price.sid = $sid service.sid = price.sid";
+        $qr = "SELECT * FROM service, price WHERE price.sid = $sid AND service.sid = price.sid";
         return mysqli_query($this->connect, $qr);
     }
 
@@ -146,6 +151,23 @@ class ServiceModel extends Database {
         else if(strlen($pyear)>9) return false;
         else if(strlen($punit)>10) return false;
         return true;
+    }
+
+    public function addPayment($uid, $service, $money, $package){
+        $qr = "INSERT INTO payment VALUES($uid, '$service', '$money', '$package')";
+        $result = false;
+        $temp = mysqli_query($this->connect, $qr);
+        $last_id=1;
+        if ($temp) {
+            $last_id = mysqli_insert_id($this->connect);
+            return $last_id;
+        }
+        return json_encode($result);
+    }
+
+    public function selectPayment($uid) {
+        $qr = "SELECT * FROM payment WHERE payment.uid = $uid";
+        return mysqli_query($this->connect, $qr);
     }
 }
 ?>

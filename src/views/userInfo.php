@@ -108,18 +108,19 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="service d-flex justify-content-between flex-wrap">
-                        <div class="card" style="margin: 10px 0; width: 49%;">
-                            <div class="card-body">
-                                <a href="">Dọn nhà sau sửa chữa</a>
-                                <p style="font-size: 11px; font-weight: lighter; color: rgb(150, 150, 150);">Chưa thanh toán</p>
+                    <?php while ($row = mysqli_fetch_assoc($data[2])) {
+                           echo '<div class="card" style="margin: 10px 0; width: 49%;">';
+                           echo '<div class="card-body">
+                           <h5 style="color: blue;">';
+                           echo $row["service"].'</h5>';
+                           if (intval($row["package"]) == 0) echo '<p> Gói thường </p>';
+                           else if (intval($row["package"]) == 1) echo '<p> Gói tháng </p>';
+                           else echo '<p> Gói năm </p>';
+                           echo '<p style="font-size: 11px; font-weight: normal; color: rgb(150, 150, 150);">Đã thanh toán</p>
                             </div>
-                        </div>
-                        <div class="card" style="margin: 10px 0; width: 49%;">
-                            <div class="card-body">
-                                <a href="">Dọn nhà sau sửa chữa</a>
-                                <p style="font-size: 11px; font-weight: lighter; color: rgb(150, 150, 150);">Chưa thanh toán</p>
-                            </div>
-                        </div>
+                            </div>';
+                        }
+                    ?>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="comment-tab">
@@ -147,6 +148,7 @@
                         </div>
                         <button type="button" id="btnChangePwd" class="btn btn-primary">Cập nhật mật khẩu</button>
                     </form>
+                    <a href="/assignment2/ResetPassword/" class="ml-3 mt-3 d-block">Quên mật khẩu?</a>
                 </div>
             </div>
         </div>

@@ -2,16 +2,25 @@ $(document).ready(function() {
     $(function () {
         $('[data-toggle="popover"]').popover()
     });
-    $("#Email").change(function() {
-        let email = $("#Email").val();
-        let atSign = email.indexOf("@");
-        let dot = email.indexOf(".");
-        if (atSign == -1 || dot == -1 || dot - atSign <= 1) {
-            $("#invalidEmail").text("Invalid Email");
-        } else {
-            $("#invalidEmail").text("");
-        }
-    });
+    // $("#Email").change(function() {
+    //     let email = $("#Email").val();
+    //     $.ajax({
+    //         url: "/assignment2/Ajax/checkEmail/",
+    //         type: "POST",
+    //         data: {
+    //             email: email
+    //         },
+    //         success: function(data) {
+    //             if (data != "") {
+    //                 $("#invalidEmail").text(data);
+    //                 $("#Email").css({"border-color": "red", "outline": "0", "box-shadow": "0 0 0 0.2rem rgb(252, 174, 169)"});
+    //             } else {
+    //                 $("#Email").css({"border-color": "", "outline": "", "box-shadow": ""});
+    //                 $("#invalidEmail").text(data);
+    //             }
+    //         }
+    //     });
+    // });
 
     $("#butnLogin").click(function(e) {
         let email = $("#Email").val();

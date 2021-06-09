@@ -75,7 +75,7 @@
                             </ul>
                         </div>
                         <?php if (!isset($_SESSION["login"])) {?><span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần đăng nhập để đăng ký dịch vụ"> <?php } ?>
-                            <a href="/assignment2/price/payment/0/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
+                            <a href="/assignment2/Price/payment/0/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
                         <?php if (!isset($_SESSION["login"])) { ?> </span> <?php } ?>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                             </ul>
                         </div>
                         <?php if (!isset($_SESSION["login"])) {?><span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần đăng nhập để đăng ký dịch vụ"> <?php } ?>
-                            <a href="/assignment2/price/payment/1/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
+                            <a href="/assignment2/Price/payment/1/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
                         <?php if (!isset($_SESSION["login"])) { ?> </span> <?php } ?>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                             </ul>
                         </div>
                         <?php if (!isset($_SESSION["login"])) {?><span class="d-inline-block w-100" data-toggle="popover" data-placement="bottom" data-content="Bạn cần đăng nhập để đăng ký dịch vụ"> <?php } ?>
-                            <a href="/assignment2/price/payment/2/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
+                            <a href="/assignment2/Price/payment/2/<?php echo $row["SID"] ?>" class="btn btn-block btn-primary <?php if (!isset($_SESSION["login"])) echo "disabled"; ?>">Đăng ký</a>
                         <?php if (!isset($_SESSION["login"])) { ?> </span> <?php } ?>
                     </div>
                 </div>

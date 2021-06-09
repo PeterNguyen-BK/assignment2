@@ -241,3 +241,19 @@ label.star:before {
 .content-footer{
     text-align: justify;
 }
+
+.confirm {
+    margin: auto;
+    border: 1px solid black;
+    padding: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+}
+.table-info1 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+}

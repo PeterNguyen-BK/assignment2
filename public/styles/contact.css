@@ -1,0 +1,291 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+}
+
+.header {
+    width: 100%;
+    height: 116px;
+    z-index: 2;
+    transition-duration: 0.5s;
+}
+
+.sticky {
+    animation: slideInDown; 
+    animation-duration: 0.5s;
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    width: 170px;
+    height: 100px;
+}
+
+.navbar {
+    width: 100%;
+    z-index: 1;
+    background-color: transparent !important;
+}
+
+.navbar .non-display {
+    display: none;
+}
+
+.navbar-brand {
+    margin: 0 200px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar-collapse {
+    width: 100% !important;
+    justify-content: center;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-item {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+}
+
+.search .search-icon {
+    width: 113px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+}
+
+.header .search .btn:focus {
+    box-shadow: none;
+}
+
+.search .dropdown-menu {
+    width: 250px;
+    padding: 5px 10px;
+    top : 130% !important;
+    left: -120% !important;
+}
+
+.search .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    right: 32px;
+    border-bottom: 10px solid rgb(194, 194, 194);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+} 
+
+.search .dropdown-menu input {
+    padding: 5px 10px;
+}
+
+#userRegister {
+	width: 40%;
+	margin: 0 auto;
+}
+
+.search-responsive {display: none !important;}
+
+#userLogin img{
+    width: 20px;
+    height: 20px;
+}
+
+#userMenu button{
+    background-color: transparent;
+}
+
+#contact-bkcse{
+    width: 100%;
+}
+
+.bg1 {
+    background-image: url('../img/bg4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg1 h1 {
+    color: white;
+}
+
+.bg1 p {
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+.location {
+    width: 400px;
+}
+
+.location p {
+    width: 300px;
+}
+
+.location-icon {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' fill='%2356b665' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M256,0C156.748,0,76,80.748,76,180c0,33.534,9.289,66.26,26.869,94.652l142.885,230.257 c2.737,4.411,7.559,7.091,12.745,7.091c0.04,0,0.079,0,0.119,0c5.231-0.041,10.063-2.804,12.75-7.292L410.611,272.22 C427.221,244.428,436,212.539,436,180C436,80.748,355.252,0,256,0z M384.866,256.818L258.272,468.186l-129.905-209.34 C113.734,235.214,105.8,207.95,105.8,180c0-82.71,67.49-150.2,150.2-150.2S406.1,97.29,406.1,180 C406.1,207.121,398.689,233.688,384.866,256.818z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M256,90c-49.626,0-90,40.374-90,90c0,49.309,39.717,90,90,90c50.903,0,90-41.233,90-90C346,130.374,305.626,90,256,90z M256,240.2c-33.257,0-60.2-27.033-60.2-60.2c0-33.084,27.116-60.2,60.2-60.2s60.1,27.116,60.1,60.2 C316.1,212.683,289.784,240.2,256,240.2z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    color: rgb(86, 182, 101);
+}
+
+.phone-icon {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512.076 512.076' fill='%2356b665' style='enable-background:new 0 0 512.076 512.076;' xml:space='preserve'%3E%3Cg transform='translate(-1 -1)'%3E%3Cg%3E%3Cg%3E%3Cpath d='M499.639,396.039l-103.646-69.12c-13.153-8.701-30.784-5.838-40.508,6.579l-30.191,38.818 c-3.88,5.116-10.933,6.6-16.546,3.482l-5.743-3.166c-19.038-10.377-42.726-23.296-90.453-71.04s-60.672-71.45-71.049-90.453 l-3.149-5.743c-3.161-5.612-1.705-12.695,3.413-16.606l38.792-30.182c12.412-9.725,15.279-27.351,6.588-40.508l-69.12-103.646 C109.12,1.056,91.25-2.966,77.461,5.323L34.12,31.358C20.502,39.364,10.511,52.33,6.242,67.539 c-15.607,56.866-3.866,155.008,140.706,299.597c115.004,114.995,200.619,145.92,259.465,145.92 c13.543,0.058,27.033-1.704,40.107-5.239c15.212-4.264,28.18-14.256,36.181-27.878l26.061-43.315 C517.063,422.832,513.043,404.951,499.639,396.039z M494.058,427.868l-26.001,43.341c-5.745,9.832-15.072,17.061-26.027,20.173 c-52.497,14.413-144.213,2.475-283.008-136.32S8.29,124.559,22.703,72.054c3.116-10.968,10.354-20.307,20.198-26.061 l43.341-26.001c5.983-3.6,13.739-1.855,17.604,3.959l37.547,56.371l31.514,47.266c3.774,5.707,2.534,13.356-2.85,17.579 l-38.801,30.182c-11.808,9.029-15.18,25.366-7.91,38.332l3.081,5.598c10.906,20.002,24.465,44.885,73.967,94.379 c49.502,49.493,74.377,63.053,94.37,73.958l5.606,3.089c12.965,7.269,29.303,3.898,38.332-7.91l30.182-38.801 c4.224-5.381,11.87-6.62,17.579-2.85l103.637,69.12C495.918,414.126,497.663,421.886,494.058,427.868z'/%3E%3Cpath d='M291.161,86.39c80.081,0.089,144.977,64.986,145.067,145.067c0,4.713,3.82,8.533,8.533,8.533s8.533-3.82,8.533-8.533 c-0.099-89.503-72.63-162.035-162.133-162.133c-4.713,0-8.533,3.82-8.533,8.533S286.448,86.39,291.161,86.39z'/%3E%3Cpath d='M291.161,137.59c51.816,0.061,93.806,42.051,93.867,93.867c0,4.713,3.821,8.533,8.533,8.533 c4.713,0,8.533-3.82,8.533-8.533c-0.071-61.238-49.696-110.863-110.933-110.933c-4.713,0-8.533,3.82-8.533,8.533 S286.448,137.59,291.161,137.59z'/%3E%3Cpath d='M291.161,188.79c23.552,0.028,42.638,19.114,42.667,42.667c0,4.713,3.821,8.533,8.533,8.533s8.533-3.82,8.533-8.533 c-0.038-32.974-26.759-59.696-59.733-59.733c-4.713,0-8.533,3.82-8.533,8.533S286.448,188.79,291.161,188.79z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+.mail-icon {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' fill='%2356b665' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M469.333,64H42.667C19.135,64,0,83.135,0,106.667v298.667C0,428.865,19.135,448,42.667,448h426.667 C492.865,448,512,428.865,512,405.333V106.667C512,83.135,492.865,64,469.333,64z M42.667,85.333h426.667 c1.572,0,2.957,0.573,4.432,0.897c-36.939,33.807-159.423,145.859-202.286,184.478c-3.354,3.021-8.76,6.625-15.479,6.625 s-12.125-3.604-15.49-6.635C197.652,232.085,75.161,120.027,38.228,86.232C39.706,85.908,41.094,85.333,42.667,85.333z M21.333,405.333V106.667c0-2.09,0.63-3.986,1.194-5.896c28.272,25.876,113.736,104.06,169.152,154.453 C136.443,302.671,50.957,383.719,22.46,410.893C21.957,409.079,21.333,407.305,21.333,405.333z M469.333,426.667H42.667 c-1.704,0-3.219-0.594-4.81-0.974c29.447-28.072,115.477-109.586,169.742-156.009c7.074,6.417,13.536,12.268,18.63,16.858 c8.792,7.938,19.083,12.125,29.771,12.125s20.979-4.188,29.76-12.115c5.096-4.592,11.563-10.448,18.641-16.868 c54.268,46.418,140.286,127.926,169.742,156.009C472.552,426.073,471.039,426.667,469.333,426.667z M490.667,405.333 c0,1.971-0.624,3.746-1.126,5.56c-28.508-27.188-113.984-108.227-169.219-155.668c55.418-50.393,140.869-128.57,169.151-154.456 c0.564,1.91,1.194,3.807,1.194,5.897V405.333z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+.slideamin .btn {
+    width: 200px;
+    border-radius: 20px;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
+#bfgg {
+	background-color: rgb(39, 45, 46);
+	color: #ffffff;
+	padding: 10px;
+}
+
+.footer1 , .footer2, .footer3, .footer4 {
+    color: #ddd;
+}
+.lienhe, .banggia, .gioithieu, .dichvufooter{
+    font-size: large;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #282E34;
+    margin-top: 20px;
+}
+
+.content-footer a{
+    color: goldenrod;
+}
+
+.content-footer a:hover{
+    color: aquamarine;
+}
+
+.content-footer{
+    text-align: justify;
+}
+
+@media only screen and (max-width: 992px) {
+    .navbar {
+        padding: 8px 8px;
+    }
+
+    .navbar .non-display {
+        display: block;
+    }
+
+    .navbar .navbar-collapse .navbar-brand {
+        display: none;
+    }
+
+    .navbar .navbar-toggler {
+        padding: 3px;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .search-bar {
+        display: block !important;
+    }
+
+    .search-responsive {
+        display: block !important;
+    }
+
+    .search-responsive img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .search-responsive button {
+        width: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: transparent;
+    }
+    
+    .search-responsive .dropdown-toggle::after {
+        color: rgb(0, 0, 0);
+    }
+    
+    .header .search-responsive .btn:focus {
+        box-shadow: none;
+    }
+    
+    .search-responsive .dropdown-menu {
+        padding: 5px 10px;
+        top : 130% !important;
+        left: -260% !important;
+    }
+    
+    .search-responsive .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        right: 5px;
+        border-bottom: 10px solid rgb(255, 255, 255);
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+    } 
+    
+    .search-responsive .dropdown-menu input {
+        padding: 5px 10px;
+    }
+
+    .content .introduce2 {
+        padding: 40px 30px;
+    }
+
+    .content .message {
+        width: 250px;
+    }
+
+    .content .message .slide-effect p {
+        font-size: 14px;
+    }
+}

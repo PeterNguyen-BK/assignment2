@@ -12,7 +12,8 @@ class User extends Controller {
         if (isset($_SESSION["login"])){
             $user = $this->UserModel->getDetailUser($_SESSION["user"]);
             $comment = $this->ServiceModel->getComment($_SESSION["user"]);
-            $this->View("userInfo", [$user, $comment]);
+            $service = $this->ServiceModel->selectPayment($_SESSION["user"]);
+            $this->View("userInfo", [$user, $comment, $service]);
             if (isset($_POST["btnUpdateInfo"])) {
                 $fname = $_POST["fname"];
                 $lname = $_POST["lname"];
@@ -100,7 +101,7 @@ class User extends Controller {
                 ------------------------
                 
                 Please click this link to activate your account:
-                http://localhost/assignment2/User/verifyEmail/'.$email.''; // Our message above including the link
+                http://908bffca3ddc.ngrok.io/assignment2/User/verifyEmail/'.$email.''; // Our message above including the link
                                     
                 $headers = 'From:BKCleanly@gmail.com'; // Set from headers
                 if (mail($to, $subject, $message, $headers)) {
@@ -127,32 +128,44 @@ class User extends Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             header("Location: /assignment2/Home/");
         } else {
-            $check = true;
+            $check = false;
             if (isset($_POST["email"])) {
                 $email = $_POST["email"];
-                $pwd = $_POST["password"];
-                $user = $this->Model("UserModel");
-                $rlt = $user->getUser();
-                while ($row = mysqli_fetch_array($rlt)) {
-                    if (array_search($email, $row)) {
-                        $check = true;
-                        if (password_verify($pwd, $row["password"])) {
-                            if (intval($row["admin"]) == 1) {
-                                $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
-                                $_SESSION["user"] = $row["UID"];
-                                $_SESSION["admin"] = $row["UID"];
-                            } else {
-                                $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
-                                $_SESSION["user"] = $row["UID"];
-                            }
-                            break;
-                        } else {
-                            $check = false;
-                            break;
-                        }
-                    } else $check = false;
+                if (strlen($email) == 0) {
+                    $check = true;
+                } else if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email)) {
+                    $check = true;
                 }
-                if (!$check) echo "No";
+
+                $pwd = $_POST["password"];
+                if (strlen($pwd) == 0) {
+                    $check = true;
+                }
+
+                if (!$check) {
+                    $user = $this->Model("UserModel");
+                    $rlt = $user->getUser();
+                    while ($row = mysqli_fetch_array($rlt)) {
+                        if (array_search($email, $row)) {
+                            $check = true;
+                            if (password_verify($pwd, $row["password"])) {
+                                if (intval($row["admin"]) == 1) {
+                                    $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
+                                    $_SESSION["user"] = $row["UID"];
+                                    $_SESSION["admin"] = $row["UID"];
+                                } else {
+                                    $_SESSION["login"] = $row["first_name"]." ".$row["last_name"];
+                                    $_SESSION["user"] = $row["UID"];
+                                }
+                                break;
+                            } else {
+                                $check = false;
+                                break;
+                            }
+                        } else $check = false;
+                    }
+                    if (!$check) echo "No";
+                } else echo "No";
             }
         }
     }

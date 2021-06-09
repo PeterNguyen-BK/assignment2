@@ -27,6 +27,7 @@
                         </button>
                     <?php }?>
                 </form>
+                <a href="/assignment2/ResetPassword/">Quên mật khẩu?</a>
             </div>
         </div>
     </div>
